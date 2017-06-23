@@ -1,0 +1,303 @@
+intelGF_NC
+Resetting modules to system default
+/cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b
+NCDF =  /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b   probably is not correct
+PROCESSING archive/src:
+Resetting modules to system default
+NCDF =  /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b
+ARCH =  intelGF_NC
+ln: failed to create symbolic link ‘./mod_plot.mod’: File exists
+ln: failed to create symbolic link ‘./mod_xc.mod’: File exists
+ln: failed to create symbolic link ‘./mod_za.mod’: File exists
+ln: failed to create symbolic link ‘./mod_zb.mod’: File exists
+Make worked: archv2ncdf2d
+Make worked: archm2ncdf2d
+Make worked: archv2ncdf2t
+Make worked: archv2ncdf3z
+Make worked: archm2ncdf3z
+Make worked: archv2ncdfsf
+Make worked: archv2ncdfsfl
+Make worked: archv2ncdfsfz
+Make worked: field2ncdf
+PROCESSING force/src:
+Resetting modules to system default
+NCDF =  /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b
+ARCH =  intelGF_NC
+Make worked: force2nc
+Make worked: nrl2nc
+Make worked: ap_nc
+Make worked: kp_nc
+Make worked: tp_nc
+Make worked: wi_nc
+PROCESSING relax/src:
+Resetting modules to system default
+NCDF =  /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b
+ARCH =  intelGF_NC
+Make worked: ssh_modas
+Make failed: sst_modas
+Make worked: sst_gdem3
+Make worked: sst_gdem4
+Make worked: sst_woa
+Make worked: z_gdem3
+Make worked: z_gdem4
+Make worked: z_woa_tracer
+PROCESSING bin:
+source ../Make_ncdf.src
+eval `$LMOD_CMD tcsh  restore system`
+/cluster/software/lmod/lmod/libexec/lmod tcsh restore system
+Resetting modules to system default
+unsetenv ACLOCAL_PATH
+unsetenv CPATH
+unsetenv CURL_INCLUDES
+unsetenv EBDEVELBINUTILS
+unsetenv EBDEVELCURL
+unsetenv EBDEVELFFTW
+unsetenv EBDEVELFOSS
+unsetenv EBDEVELGCC
+unsetenv EBDEVELGCCCORE
+unsetenv EBDEVELGOMPI
+unsetenv EBDEVELHDF5
+unsetenv EBDEVELHWLOC
+unsetenv EBDEVELNETCDF
+unsetenv EBDEVELNETCDFMINFORTRAN
+unsetenv EBDEVELNUMACTL
+unsetenv EBDEVELOPENBLAS
+unsetenv EBDEVELOPENMPI
+unsetenv EBDEVELSCALAPACK
+unsetenv EBDEVELSZIP
+unsetenv EBDEVELZLIB
+unsetenv EBROOTBINUTILS
+unsetenv EBROOTCURL
+unsetenv EBROOTFFTW
+unsetenv EBROOTFOSS
+unsetenv EBROOTGCC
+unsetenv EBROOTGCCCORE
+unsetenv EBROOTGOMPI
+unsetenv EBROOTHDF5
+unsetenv EBROOTHWLOC
+unsetenv EBROOTNETCDF
+unsetenv EBROOTNETCDFMINFORTRAN
+unsetenv EBROOTNUMACTL
+unsetenv EBROOTOPENBLAS
+unsetenv EBROOTOPENMPI
+unsetenv EBROOTSCALAPACK
+unsetenv EBROOTSZIP
+unsetenv EBROOTZLIB
+unsetenv EBVERSIONBINUTILS
+unsetenv EBVERSIONCURL
+unsetenv EBVERSIONFFTW
+unsetenv EBVERSIONFOSS
+unsetenv EBVERSIONGCC
+unsetenv EBVERSIONGCCCORE
+unsetenv EBVERSIONGOMPI
+unsetenv EBVERSIONHDF5
+unsetenv EBVERSIONHWLOC
+unsetenv EBVERSIONNETCDF
+unsetenv EBVERSIONNETCDFMINFORTRAN
+unsetenv EBVERSIONNUMACTL
+unsetenv EBVERSIONOPENBLAS
+unsetenv EBVERSIONOPENMPI
+unsetenv EBVERSIONSCALAPACK
+unsetenv EBVERSIONSZIP
+unsetenv EBVERSIONZLIB
+unsetenv LD_LIBRARY_PATH
+unsetenv LIBRARY_PATH
+setenv LOADEDMODULES StdEnv
+setenv MANPATH /cluster/software/lmod/lmod/share/man::
+setenv MODULEPATH /cluster/software/modulefiles/easybuild/all:/cluster/software/modulefiles/Linux:/cluster/software/modulefiles/Core:/cluster/software/lmod/lmod/modulefiles/Core:/cluster/software/modulefiles/site-specific
+setenv PATH /node/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin:/cluster/bin:/nird/home/xiejp/.local/bin:/nird/home/xiejp/bin:/nird/home/xiejp/MSCPROGS/bin:/nird/home/xiejp/MSCPROGS/bin_setup:.
+unsetenv PKG_CONFIG_PATH
+setenv _LMFILES_ /cluster/software/modulefiles/Core/StdEnv.lua
+setenv _ModuleTable001_ X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPTcyMDAsWyJjX3Nob3J0VGltZSJdPTAuOTE2MjgwMDMxMjA0MjIsZGVwdGhUPXt9LGZhbWlseT17fSxtVD17U3RkRW52PXtbImZuIl09Ii9jbHVzdGVyL3NvZnR3YXJlL21vZHVsZWZpbGVzL0NvcmUvU3RkRW52Lmx1YSIsWyJmdWxsTmFtZSJdPSJTdGRFbnYiLFsibG9hZE9yZGVyIl09MSxwcm9wVD17bG1vZD17WyJzdGlja3kiXT0xLH0sfSxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0iU3RkRW52Iix9LH0sbXBhdGhBPXsiL2NsdXN0ZXIvc29mdHdhcmUvbW9kdWxlZmlsZXMvZWFzeWJ1aWxkL2FsbCIsIi9jbHVzdGVyL3NvZnR3YXJlL21vZHVsZWZpbGVzL0xpbnV4IiwiL2Ns
+setenv _ModuleTable002_ dXN0ZXIvc29mdHdhcmUvbW9kdWxlZmlsZXMvQ29yZSIsIi9jbHVzdGVyL3NvZnR3YXJlL2xtb2QvbG1vZC9tb2R1bGVmaWxlcy9Db3JlIiwiL2NsdXN0ZXIvc29mdHdhcmUvbW9kdWxlZmlsZXMvc2l0ZS1zcGVjaWZpYyIsfSxbInN5c3RlbUJhc2VNUEFUSCJdPSIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9MaW51eDovY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9Db3JlOi9jbHVzdGVyL3NvZnR3YXJlL2xtb2QvbG1vZC9tb2R1bGVmaWxlcy9Db3JlIix9
+setenv _ModuleTable_Sz_ 2
+unsetenv _ModuleTable004_
+unsetenv _ModuleTable005_
+unsetenv _ModuleTable006_
+unsetenv _ModuleTable007_
+unsetenv _ModuleTable008_
+unsetenv _ModuleTable009_
+unsetenv _ModuleTable010_
+unsetenv _ModuleTable011_
+unsetenv _ModuleTable012_
+eval `$LMOD_SETTARG_CMD -s csh`
+: -s csh
+eval `$LMOD_CMD tcsh  load netCDF-Fortran/4.4.4-foss-2016b`
+/cluster/software/lmod/lmod/libexec/lmod tcsh load netCDF-Fortran/4.4.4-foss-2016b
+setenv ACLOCAL_PATH /cluster/software/easybuild/software/cURL/7.49.1-foss-2016b/share/aclocal
+setenv CPATH /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b/include:/cluster/software/easybuild/software/netCDF/4.4.1-foss-2016b/include:/cluster/software/easybuild/software/cURL/7.49.1-foss-2016b/include:/cluster/software/easybuild/software/HDF5/1.8.17-foss-2016b/include:/cluster/software/easybuild/software/Szip/2.1-foss-2016b/include:/cluster/software/easybuild/software/zlib/1.2.8-foss-2016b/include:/cluster/software/easybuild/software/ScaLAPACK/2.0.2-gompi-2016b-OpenBLAS-0.2.18-LAPACK-3.6.1/include:/cluster/software/easybuild/software/FFTW/3.3.4-gompi-2016b/include:/cluster/software/easybuild/software/OpenBLAS/0.2.18-GCC-5.4.0-2.26-LAPACK-3.6.1/include:/cluster/software/easybuild/software/OpenMPI/1.10.3-GCC-5.4.0-2.26/include:/cluster/software/easybuild/software/hwloc/1.11.3-GCC-5.4.0-2.26/include:/cluster/software/easybuild/software/numactl/2.0.11-GCC-5.4.0-2.26/include:/cluster/software/easybuild/software/binutils/2.26-GCCcore-5.4.0/include:/cluster/software/easybuild/software/GCCcore/5.4.0/include
+setenv CURL_INCLUDES /cluster/software/easybuild/software/cURL/7.49.1-foss-2016b/include
+setenv EBDEVELBINUTILS /cluster/software/easybuild/software/binutils/2.26-GCCcore-5.4.0/easybuild/binutils-2.26-GCCcore-5.4.0-easybuild-devel
+setenv EBDEVELCURL /cluster/software/easybuild/software/cURL/7.49.1-foss-2016b/easybuild/cURL-7.49.1-foss-2016b-easybuild-devel
+setenv EBDEVELFFTW /cluster/software/easybuild/software/FFTW/3.3.4-gompi-2016b/easybuild/FFTW-3.3.4-gompi-2016b-easybuild-devel
+setenv EBDEVELFOSS /cluster/software/easybuild/software/foss/2016b/easybuild/foss-2016b-easybuild-devel
+setenv EBDEVELGCC /cluster/software/easybuild/software/GCC/5.4.0-2.26/easybuild/GCC-5.4.0-2.26-easybuild-devel
+setenv EBDEVELGCCCORE /cluster/software/easybuild/software/GCCcore/5.4.0/easybuild/GCCcore-5.4.0-easybuild-devel
+setenv EBDEVELGOMPI /cluster/software/easybuild/software/gompi/2016b/easybuild/gompi-2016b-easybuild-devel
+setenv EBDEVELHDF5 /cluster/software/easybuild/software/HDF5/1.8.17-foss-2016b/easybuild/HDF5-1.8.17-foss-2016b-easybuild-devel
+setenv EBDEVELHWLOC /cluster/software/easybuild/software/hwloc/1.11.3-GCC-5.4.0-2.26/easybuild/hwloc-1.11.3-GCC-5.4.0-2.26-easybuild-devel
+setenv EBDEVELNETCDF /cluster/software/easybuild/software/netCDF/4.4.1-foss-2016b/easybuild/netCDF-4.4.1-foss-2016b-easybuild-devel
+setenv EBDEVELNETCDFMINFORTRAN /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b/easybuild/netCDF-Fortran-4.4.4-foss-2016b-easybuild-devel
+setenv EBDEVELNUMACTL /cluster/software/easybuild/software/numactl/2.0.11-GCC-5.4.0-2.26/easybuild/numactl-2.0.11-GCC-5.4.0-2.26-easybuild-devel
+setenv EBDEVELOPENBLAS /cluster/software/easybuild/software/OpenBLAS/0.2.18-GCC-5.4.0-2.26-LAPACK-3.6.1/easybuild/OpenBLAS-0.2.18-GCC-5.4.0-2.26-LAPACK-3.6.1-easybuild-devel
+setenv EBDEVELOPENMPI /cluster/software/easybuild/software/OpenMPI/1.10.3-GCC-5.4.0-2.26/easybuild/OpenMPI-1.10.3-GCC-5.4.0-2.26-easybuild-devel
+setenv EBDEVELSCALAPACK /cluster/software/easybuild/software/ScaLAPACK/2.0.2-gompi-2016b-OpenBLAS-0.2.18-LAPACK-3.6.1/easybuild/ScaLAPACK-2.0.2-gompi-2016b-OpenBLAS-0.2.18-LAPACK-3.6.1-easybuild-devel
+setenv EBDEVELSZIP /cluster/software/easybuild/software/Szip/2.1-foss-2016b/easybuild/Szip-2.1-foss-2016b-easybuild-devel
+setenv EBDEVELZLIB /cluster/software/easybuild/software/zlib/1.2.8-foss-2016b/easybuild/zlib-1.2.8-foss-2016b-easybuild-devel
+setenv EBROOTBINUTILS /cluster/software/easybuild/software/binutils/2.26-GCCcore-5.4.0
+setenv EBROOTCURL /cluster/software/easybuild/software/cURL/7.49.1-foss-2016b
+setenv EBROOTFFTW /cluster/software/easybuild/software/FFTW/3.3.4-gompi-2016b
+setenv EBROOTFOSS /cluster/software/easybuild/software/foss/2016b
+setenv EBROOTGCC /cluster/software/easybuild/software/GCCcore/5.4.0
+setenv EBROOTGCCCORE /cluster/software/easybuild/software/GCCcore/5.4.0
+setenv EBROOTGOMPI /cluster/software/easybuild/software/gompi/2016b
+setenv EBROOTHDF5 /cluster/software/easybuild/software/HDF5/1.8.17-foss-2016b
+setenv EBROOTHWLOC /cluster/software/easybuild/software/hwloc/1.11.3-GCC-5.4.0-2.26
+setenv EBROOTNETCDF /cluster/software/easybuild/software/netCDF/4.4.1-foss-2016b
+setenv EBROOTNETCDFMINFORTRAN /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b
+setenv EBROOTNUMACTL /cluster/software/easybuild/software/numactl/2.0.11-GCC-5.4.0-2.26
+setenv EBROOTOPENBLAS /cluster/software/easybuild/software/OpenBLAS/0.2.18-GCC-5.4.0-2.26-LAPACK-3.6.1
+setenv EBROOTOPENMPI /cluster/software/easybuild/software/OpenMPI/1.10.3-GCC-5.4.0-2.26
+setenv EBROOTSCALAPACK /cluster/software/easybuild/software/ScaLAPACK/2.0.2-gompi-2016b-OpenBLAS-0.2.18-LAPACK-3.6.1
+setenv EBROOTSZIP /cluster/software/easybuild/software/Szip/2.1-foss-2016b
+setenv EBROOTZLIB /cluster/software/easybuild/software/zlib/1.2.8-foss-2016b
+setenv EBVERSIONBINUTILS 2.26
+setenv EBVERSIONCURL 7.49.1
+setenv EBVERSIONFFTW 3.3.4
+setenv EBVERSIONFOSS 2016b
+setenv EBVERSIONGCC 5.4.0
+setenv EBVERSIONGCCCORE 5.4.0
+setenv EBVERSIONGOMPI 2016b
+setenv EBVERSIONHDF5 1.8.17
+setenv EBVERSIONHWLOC 1.11.3
+setenv EBVERSIONNETCDF 4.4.1
+setenv EBVERSIONNETCDFMINFORTRAN 4.4.4
+setenv EBVERSIONNUMACTL 2.0.11
+setenv EBVERSIONOPENBLAS 0.2.18
+setenv EBVERSIONOPENMPI 1.10.3
+setenv EBVERSIONSCALAPACK 2.0.2
+setenv EBVERSIONSZIP 2.1
+setenv EBVERSIONZLIB 1.2.8
+setenv LD_LIBRARY_PATH /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b/lib:/cluster/software/easybuild/software/netCDF/4.4.1-foss-2016b/lib64:/cluster/software/easybuild/software/cURL/7.49.1-foss-2016b/lib:/cluster/software/easybuild/software/HDF5/1.8.17-foss-2016b/lib:/cluster/software/easybuild/software/Szip/2.1-foss-2016b/lib:/cluster/software/easybuild/software/zlib/1.2.8-foss-2016b/lib:/cluster/software/easybuild/software/ScaLAPACK/2.0.2-gompi-2016b-OpenBLAS-0.2.18-LAPACK-3.6.1/lib:/cluster/software/easybuild/software/FFTW/3.3.4-gompi-2016b/lib:/cluster/software/easybuild/software/OpenBLAS/0.2.18-GCC-5.4.0-2.26-LAPACK-3.6.1/lib:/cluster/software/easybuild/software/OpenMPI/1.10.3-GCC-5.4.0-2.26/lib:/cluster/software/easybuild/software/hwloc/1.11.3-GCC-5.4.0-2.26/lib:/cluster/software/easybuild/software/numactl/2.0.11-GCC-5.4.0-2.26/lib:/cluster/software/easybuild/software/binutils/2.26-GCCcore-5.4.0/lib:/cluster/software/easybuild/software/GCCcore/5.4.0/lib/gcc/x86_64-unknown-linux-gnu/5.4.0:/cluster/software/easybuild/software/GCCcore/5.4.0/lib64:/cluster/software/easybuild/software/GCCcore/5.4.0/lib
+setenv LIBRARY_PATH /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b/lib:/cluster/software/easybuild/software/netCDF/4.4.1-foss-2016b/lib64:/cluster/software/easybuild/software/cURL/7.49.1-foss-2016b/lib:/cluster/software/easybuild/software/HDF5/1.8.17-foss-2016b/lib:/cluster/software/easybuild/software/Szip/2.1-foss-2016b/lib:/cluster/software/easybuild/software/zlib/1.2.8-foss-2016b/lib:/cluster/software/easybuild/software/ScaLAPACK/2.0.2-gompi-2016b-OpenBLAS-0.2.18-LAPACK-3.6.1/lib:/cluster/software/easybuild/software/FFTW/3.3.4-gompi-2016b/lib:/cluster/software/easybuild/software/OpenBLAS/0.2.18-GCC-5.4.0-2.26-LAPACK-3.6.1/lib:/cluster/software/easybuild/software/OpenMPI/1.10.3-GCC-5.4.0-2.26/lib:/cluster/software/easybuild/software/hwloc/1.11.3-GCC-5.4.0-2.26/lib:/cluster/software/easybuild/software/numactl/2.0.11-GCC-5.4.0-2.26/lib:/cluster/software/easybuild/software/binutils/2.26-GCCcore-5.4.0/lib:/cluster/software/easybuild/software/GCCcore/5.4.0/lib64:/cluster/software/easybuild/software/GCCcore/5.4.0/lib
+setenv LOADEDMODULES StdEnv:GCCcore/5.4.0:binutils/2.26-GCCcore-5.4.0:GCC/5.4.0-2.26:numactl/2.0.11-GCC-5.4.0-2.26:hwloc/1.11.3-GCC-5.4.0-2.26:OpenMPI/1.10.3-GCC-5.4.0-2.26:OpenBLAS/0.2.18-GCC-5.4.0-2.26-LAPACK-3.6.1:gompi/2016b:FFTW/3.3.4-gompi-2016b:ScaLAPACK/2.0.2-gompi-2016b-OpenBLAS-0.2.18-LAPACK-3.6.1:foss/2016b:zlib/1.2.8-foss-2016b:Szip/2.1-foss-2016b:HDF5/1.8.17-foss-2016b:cURL/7.49.1-foss-2016b:netCDF/4.4.1-foss-2016b:netCDF-Fortran/4.4.4-foss-2016b
+setenv MANPATH /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b/share/man:/cluster/software/easybuild/software/netCDF/4.4.1-foss-2016b/share/man:/cluster/software/easybuild/software/cURL/7.49.1-foss-2016b/share/man:/cluster/software/easybuild/software/zlib/1.2.8-foss-2016b/share/man:/cluster/software/easybuild/software/FFTW/3.3.4-gompi-2016b/share/man:/cluster/software/easybuild/software/OpenMPI/1.10.3-GCC-5.4.0-2.26/share/man:/cluster/software/easybuild/software/hwloc/1.11.3-GCC-5.4.0-2.26/share/man:/cluster/software/easybuild/software/numactl/2.0.11-GCC-5.4.0-2.26/share/man:/cluster/software/easybuild/software/binutils/2.26-GCCcore-5.4.0/share/man:/cluster/software/easybuild/software/GCCcore/5.4.0/share/man:/cluster/software/lmod/lmod/share/man::
+setenv MODULEPATH /cluster/software/modulefiles/easybuild/all:/cluster/software/modulefiles/Linux:/cluster/software/modulefiles/Core:/cluster/software/lmod/lmod/modulefiles/Core:/cluster/software/modulefiles/site-specific
+setenv PATH /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b/bin:/cluster/software/easybuild/software/netCDF/4.4.1-foss-2016b/bin:/cluster/software/easybuild/software/cURL/7.49.1-foss-2016b/bin:/cluster/software/easybuild/software/HDF5/1.8.17-foss-2016b/bin:/cluster/software/easybuild/software/FFTW/3.3.4-gompi-2016b/bin:/cluster/software/easybuild/software/OpenBLAS/0.2.18-GCC-5.4.0-2.26-LAPACK-3.6.1/bin:/cluster/software/easybuild/software/OpenMPI/1.10.3-GCC-5.4.0-2.26/bin:/cluster/software/easybuild/software/hwloc/1.11.3-GCC-5.4.0-2.26/sbin:/cluster/software/easybuild/software/hwloc/1.11.3-GCC-5.4.0-2.26/bin:/cluster/software/easybuild/software/numactl/2.0.11-GCC-5.4.0-2.26/bin:/cluster/software/easybuild/software/binutils/2.26-GCCcore-5.4.0/bin:/cluster/software/easybuild/software/GCCcore/5.4.0/bin:/node/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin:/cluster/bin:/nird/home/xiejp/.local/bin:/nird/home/xiejp/bin:/nird/home/xiejp/MSCPROGS/bin:/nird/home/xiejp/MSCPROGS/bin_setup:.
+setenv PKG_CONFIG_PATH /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b/lib/pkgconfig:/cluster/software/easybuild/software/netCDF/4.4.1-foss-2016b/lib64/pkgconfig:/cluster/software/easybuild/software/cURL/7.49.1-foss-2016b/lib/pkgconfig:/cluster/software/easybuild/software/zlib/1.2.8-foss-2016b/lib/pkgconfig:/cluster/software/easybuild/software/FFTW/3.3.4-gompi-2016b/lib/pkgconfig:/cluster/software/easybuild/software/OpenMPI/1.10.3-GCC-5.4.0-2.26/lib/pkgconfig:/cluster/software/easybuild/software/hwloc/1.11.3-GCC-5.4.0-2.26/lib/pkgconfig
+setenv _LMFILES_ /cluster/software/modulefiles/Core/StdEnv.lua:/cluster/software/modulefiles/easybuild/all/GCCcore/5.4.0.lua:/cluster/software/modulefiles/easybuild/all/binutils/2.26-GCCcore-5.4.0.lua:/cluster/software/modulefiles/easybuild/all/GCC/5.4.0-2.26.lua:/cluster/software/modulefiles/easybuild/all/numactl/2.0.11-GCC-5.4.0-2.26.lua:/cluster/software/modulefiles/easybuild/all/hwloc/1.11.3-GCC-5.4.0-2.26.lua:/cluster/software/modulefiles/easybuild/all/OpenMPI/1.10.3-GCC-5.4.0-2.26.lua:/cluster/software/modulefiles/easybuild/all/OpenBLAS/0.2.18-GCC-5.4.0-2.26-LAPACK-3.6.1.lua:/cluster/software/modulefiles/easybuild/all/gompi/2016b.lua:/cluster/software/modulefiles/easybuild/all/FFTW/3.3.4-gompi-2016b.lua:/cluster/software/modulefiles/easybuild/all/ScaLAPACK/2.0.2-gompi-2016b-OpenBLAS-0.2.18-LAPACK-3.6.1.lua:/cluster/software/modulefiles/easybuild/all/foss/2016b.lua:/cluster/software/modulefiles/easybuild/all/zlib/1.2.8-foss-2016b.lua:/cluster/software/modulefiles/easybuild/all/Szip/2.1-foss-2016b.lua:/cluster/software/modulefiles/easybuild/all/HDF5/1.8.17-foss-2016b.lua:/cluster/software/modulefiles/easybuild/all/cURL/7.49.1-foss-2016b.lua:/cluster/software/modulefiles/easybuild/all/netCDF/4.4.1-foss-2016b.lua:/cluster/software/modulefiles/easybuild/all/netCDF-Fortran/4.4.4-foss-2016b.lua
+setenv _ModuleTable001_ X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPTcyMDAsWyJjX3Nob3J0VGltZSJdPTAuOTE2MjgwMDMxMjA0MjIsZGVwdGhUPXt9LGZhbWlseT17fSxtVD17RkZUVz17WyJmbiJdPSIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9lYXN5YnVpbGQvYWxsL0ZGVFcvMy4zLjQtZ29tcGktMjAxNmIubHVhIixbImZ1bGxOYW1lIl09IkZGVFcvMy4zLjQtZ29tcGktMjAxNmIiLFsibG9hZE9yZGVyIl09MTAscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09IkZGVFcvMy4zLjQtZ29tcGktMjAxNmIiLH0sR0NDPXtbImZuIl09Ii9jbHVzdGVyL3NvZnR3YXJlL21vZHVsZWZpbGVzL2Vhc3lidWlsZC9hbGwvR0NDLzUu
+setenv _ModuleTable002_ NC4wLTIuMjYubHVhIixbImZ1bGxOYW1lIl09IkdDQy81LjQuMC0yLjI2IixbImxvYWRPcmRlciJdPTQscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09IkdDQy81LjQuMC0yLjI2Iix9LEdDQ2NvcmU9e1siZm4iXT0iL2NsdXN0ZXIvc29mdHdhcmUvbW9kdWxlZmlsZXMvZWFzeWJ1aWxkL2FsbC9HQ0Njb3JlLzUuNC4wLmx1YSIsWyJmdWxsTmFtZSJdPSJHQ0Njb3JlLzUuNC4wIixbImxvYWRPcmRlciJdPTIscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09IkdDQ2NvcmUvNS40LjAiLH0sSERGNT17WyJmbiJdPSIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9lYXN5YnVpbGQvYWxsL0hERjUvMS44LjE3LWZvc3MtMjAx
+setenv _ModuleTable003_ NmIubHVhIixbImZ1bGxOYW1lIl09IkhERjUvMS44LjE3LWZvc3MtMjAxNmIiLFsibG9hZE9yZGVyIl09MTUscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09IkhERjUvMS44LjE3LWZvc3MtMjAxNmIiLH0sT3BlbkJMQVM9e1siZm4iXT0iL2NsdXN0ZXIvc29mdHdhcmUvbW9kdWxlZmlsZXMvZWFzeWJ1aWxkL2FsbC9PcGVuQkxBUy8wLjIuMTgtR0NDLTUuNC4wLTIuMjYtTEFQQUNLLTMuNi4xLmx1YSIsWyJmdWxsTmFtZSJdPSJPcGVuQkxBUy8wLjIuMTgtR0NDLTUuNC4wLTIuMjYtTEFQQUNLLTMuNi4xIixbImxvYWRPcmRlciJdPTgscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09Ik9wZW5CTEFTLzAuMi4xOC1HQ0MtNS40
+setenv _ModuleTable004_ LjAtMi4yNi1MQVBBQ0stMy42LjEiLH0sT3Blbk1QST17WyJmbiJdPSIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9lYXN5YnVpbGQvYWxsL09wZW5NUEkvMS4xMC4zLUdDQy01LjQuMC0yLjI2Lmx1YSIsWyJmdWxsTmFtZSJdPSJPcGVuTVBJLzEuMTAuMy1HQ0MtNS40LjAtMi4yNiIsWyJsb2FkT3JkZXIiXT03LHByb3BUPXt9LFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJPcGVuTVBJLzEuMTAuMy1HQ0MtNS40LjAtMi4yNiIsfSxTY2FMQVBBQ0s9e1siZm4iXT0iL2NsdXN0ZXIvc29mdHdhcmUvbW9kdWxlZmlsZXMvZWFzeWJ1aWxkL2FsbC9TY2FMQVBBQ0svMi4wLjItZ29tcGktMjAxNmItT3BlbkJMQVMtMC4yLjE4LUxBUEFDSy0zLjYuMS5sdWEiLFsi
+setenv _ModuleTable005_ ZnVsbE5hbWUiXT0iU2NhTEFQQUNLLzIuMC4yLWdvbXBpLTIwMTZiLU9wZW5CTEFTLTAuMi4xOC1MQVBBQ0stMy42LjEiLFsibG9hZE9yZGVyIl09MTEscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09IlNjYUxBUEFDSy8yLjAuMi1nb21waS0yMDE2Yi1PcGVuQkxBUy0wLjIuMTgtTEFQQUNLLTMuNi4xIix9LFN0ZEVudj17WyJmbiJdPSIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9Db3JlL1N0ZEVudi5sdWEiLFsiZnVsbE5hbWUiXT0iU3RkRW52IixbImxvYWRPcmRlciJdPTEscHJvcFQ9e2xtb2Q9e1sic3RpY2t5Il09MSx9LH0sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09IlN0ZEVudiIsfSxTemlwPXtbImZuIl09Ii9jbHVz
+setenv _ModuleTable006_ dGVyL3NvZnR3YXJlL21vZHVsZWZpbGVzL2Vhc3lidWlsZC9hbGwvU3ppcC8yLjEtZm9zcy0yMDE2Yi5sdWEiLFsiZnVsbE5hbWUiXT0iU3ppcC8yLjEtZm9zcy0yMDE2YiIsWyJsb2FkT3JkZXIiXT0xNCxwcm9wVD17fSxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0iU3ppcC8yLjEtZm9zcy0yMDE2YiIsfSxiaW51dGlscz17WyJmbiJdPSIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9lYXN5YnVpbGQvYWxsL2JpbnV0aWxzLzIuMjYtR0NDY29yZS01LjQuMC5sdWEiLFsiZnVsbE5hbWUiXT0iYmludXRpbHMvMi4yNi1HQ0Njb3JlLTUuNC4wIixbImxvYWRPcmRlciJdPTMscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09ImJpbnV0
+setenv _ModuleTable007_ aWxzLzIuMjYtR0NDY29yZS01LjQuMCIsfSxjVVJMPXtbImZuIl09Ii9jbHVzdGVyL3NvZnR3YXJlL21vZHVsZWZpbGVzL2Vhc3lidWlsZC9hbGwvY1VSTC83LjQ5LjEtZm9zcy0yMDE2Yi5sdWEiLFsiZnVsbE5hbWUiXT0iY1VSTC83LjQ5LjEtZm9zcy0yMDE2YiIsWyJsb2FkT3JkZXIiXT0xNixwcm9wVD17fSxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0iY1VSTC83LjQ5LjEtZm9zcy0yMDE2YiIsfSxmb3NzPXtbImZuIl09Ii9jbHVzdGVyL3NvZnR3YXJlL21vZHVsZWZpbGVzL2Vhc3lidWlsZC9hbGwvZm9zcy8yMDE2Yi5sdWEiLFsiZnVsbE5hbWUiXT0iZm9zcy8yMDE2YiIsWyJsb2FkT3JkZXIiXT0xMixwcm9wVD17fSxbInN0YXR1cyJdPSJhY3RpdmUiLFsi
+setenv _ModuleTable008_ dXNlck5hbWUiXT0iZm9zcy8yMDE2YiIsfSxnb21waT17WyJmbiJdPSIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9lYXN5YnVpbGQvYWxsL2dvbXBpLzIwMTZiLmx1YSIsWyJmdWxsTmFtZSJdPSJnb21waS8yMDE2YiIsWyJsb2FkT3JkZXIiXT05LHByb3BUPXt9LFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJnb21waS8yMDE2YiIsfSxod2xvYz17WyJmbiJdPSIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9lYXN5YnVpbGQvYWxsL2h3bG9jLzEuMTEuMy1HQ0MtNS40LjAtMi4yNi5sdWEiLFsiZnVsbE5hbWUiXT0iaHdsb2MvMS4xMS4zLUdDQy01LjQuMC0yLjI2IixbImxvYWRPcmRlciJdPTYscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixb
+setenv _ModuleTable009_ InVzZXJOYW1lIl09Imh3bG9jLzEuMTEuMy1HQ0MtNS40LjAtMi4yNiIsfSxuZXRDREY9e1siZm4iXT0iL2NsdXN0ZXIvc29mdHdhcmUvbW9kdWxlZmlsZXMvZWFzeWJ1aWxkL2FsbC9uZXRDREYvNC40LjEtZm9zcy0yMDE2Yi5sdWEiLFsiZnVsbE5hbWUiXT0ibmV0Q0RGLzQuNC4xLWZvc3MtMjAxNmIiLFsibG9hZE9yZGVyIl09MTcscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09Im5ldENERi80LjQuMS1mb3NzLTIwMTZiIix9LFsibmV0Q0RGLUZvcnRyYW4iXT17WyJmbiJdPSIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9lYXN5YnVpbGQvYWxsL25ldENERi1Gb3J0cmFuLzQuNC40LWZvc3MtMjAxNmIubHVhIixbImZ1bGxOYW1lIl09Im5l
+setenv _ModuleTable010_ dENERi1Gb3J0cmFuLzQuNC40LWZvc3MtMjAxNmIiLFsibG9hZE9yZGVyIl09MTgscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09Im5ldENERi1Gb3J0cmFuLzQuNC40LWZvc3MtMjAxNmIiLH0sbnVtYWN0bD17WyJmbiJdPSIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9lYXN5YnVpbGQvYWxsL251bWFjdGwvMi4wLjExLUdDQy01LjQuMC0yLjI2Lmx1YSIsWyJmdWxsTmFtZSJdPSJudW1hY3RsLzIuMC4xMS1HQ0MtNS40LjAtMi4yNiIsWyJsb2FkT3JkZXIiXT01LHByb3BUPXt9LFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJudW1hY3RsLzIuMC4xMS1HQ0MtNS40LjAtMi4yNiIsfSx6bGliPXtbImZuIl09Ii9jbHVzdGVyL3Nv
+setenv _ModuleTable011_ ZnR3YXJlL21vZHVsZWZpbGVzL2Vhc3lidWlsZC9hbGwvemxpYi8xLjIuOC1mb3NzLTIwMTZiLmx1YSIsWyJmdWxsTmFtZSJdPSJ6bGliLzEuMi44LWZvc3MtMjAxNmIiLFsibG9hZE9yZGVyIl09MTMscHJvcFQ9e30sWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09InpsaWIvMS4yLjgtZm9zcy0yMDE2YiIsfSx9LG1wYXRoQT17Ii9jbHVzdGVyL3NvZnR3YXJlL21vZHVsZWZpbGVzL2Vhc3lidWlsZC9hbGwiLCIvY2x1c3Rlci9zb2Z0d2FyZS9tb2R1bGVmaWxlcy9MaW51eCIsIi9jbHVzdGVyL3NvZnR3YXJlL21vZHVsZWZpbGVzL0NvcmUiLCIvY2x1c3Rlci9zb2Z0d2FyZS9sbW9kL2xtb2QvbW9kdWxlZmlsZXMvQ29yZSIsIi9jbHVzdGVyL3NvZnR3YXJlL21vZHVs
+setenv _ModuleTable012_ ZWZpbGVzL3NpdGUtc3BlY2lmaWMiLH0sWyJzeXN0ZW1CYXNlTVBBVEgiXT0iL2NsdXN0ZXIvc29mdHdhcmUvbW9kdWxlZmlsZXMvTGludXg6L2NsdXN0ZXIvc29mdHdhcmUvbW9kdWxlZmlsZXMvQ29yZTovY2x1c3Rlci9zb2Z0d2FyZS9sbW9kL2xtb2QvbW9kdWxlZmlsZXMvQ29yZSIsfQ==
+setenv _ModuleTable_Sz_ 12
+eval `$LMOD_SETTARG_CMD -s csh`
+: -s csh
+setenv NCDF /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b
+setenv EXTRANCDF -lnetcdff -lnetcdf
+/bin/rm -f netcdf.mod libnetcdf.a
+/bin/rm -f typesizes.mod
+setenv OS `/bin/uname`
+/bin/uname
+if ( Linux == Linux ) then
+if ( `/bin/uname -m` == alpha ) then
+/bin/uname -m
+if ( `/bin/uname -m` == x86_64 ) then
+/bin/uname -m
+setenv OS Linux64
+endif
+setenv OS LinuxGF_NC
+endif
+switch ( LinuxGF_NC )
+setenv FC gfortran
+setenv FFLAGS -I/cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b/include -fPIC -fno-second-underscore -fconvert=big-endian -O
+setenv FLIBS -lfftw3 -lnetcdff -lnetcdf 
+setenv CC gcc
+setenv CFLAGS -fPIC -fno-second-underscore -O
+breaksw
+foreach f ( hycom_binning_nc hycom_scrip_nc )
+if ( ! -e hycom_binning_nc_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_binning_nc.F -prune -newer hycom_binning_nc_LinuxGF_NC
+echo hycom_binning_nc_LinuxGF_NC is already up to date
+hycom_binning_nc_LinuxGF_NC is already up to date
+endif
+touch hycom_binning_nc
+/bin/rm -f hycom_binning_nc
+chmod a+rx hycom_binning_nc_LinuxGF_NC
+/bin/ln -s hycom_binning_nc_LinuxGF_NC hycom_binning_nc
+end
+if ( ! -e hycom_scrip_nc_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_scrip_nc.F -prune -newer hycom_scrip_nc_LinuxGF_NC
+echo hycom_scrip_nc_LinuxGF_NC is already up to date
+hycom_scrip_nc_LinuxGF_NC is already up to date
+endif
+touch hycom_scrip_nc
+/bin/rm -f hycom_scrip_nc
+chmod a+rx hycom_scrip_nc_LinuxGF_NC
+/bin/ln -s hycom_scrip_nc_LinuxGF_NC hycom_scrip_nc
+end
+foreach f ( hycom_profile2z_nc hycom_profile2s_nc hycom_seaice_nc )
+if ( ! -e hycom_profile2z_nc_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_profile2z_nc.F -prune -newer hycom_profile2z_nc_LinuxGF_NC
+echo hycom_profile2z_nc_LinuxGF_NC is already up to date
+hycom_profile2z_nc_LinuxGF_NC is already up to date
+endif
+touch hycom_profile2z_nc
+/bin/rm -f hycom_profile2z_nc
+chmod a+rx hycom_profile2z_nc_LinuxGF_NC
+/bin/ln -s hycom_profile2z_nc_LinuxGF_NC hycom_profile2z_nc
+end
+if ( ! -e hycom_profile2s_nc_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_profile2s_nc.F -prune -newer hycom_profile2s_nc_LinuxGF_NC
+echo hycom_profile2s_nc_LinuxGF_NC is already up to date
+hycom_profile2s_nc_LinuxGF_NC is already up to date
+endif
+touch hycom_profile2s_nc
+/bin/rm -f hycom_profile2s_nc
+chmod a+rx hycom_profile2s_nc_LinuxGF_NC
+/bin/ln -s hycom_profile2s_nc_LinuxGF_NC hycom_profile2s_nc
+end
+if ( ! -e hycom_seaice_nc_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_seaice_nc.F -prune -newer hycom_seaice_nc_LinuxGF_NC
+echo hycom_seaice_nc_LinuxGF_NC is already up to date
+hycom_seaice_nc_LinuxGF_NC is already up to date
+endif
+touch hycom_seaice_nc
+/bin/rm -f hycom_seaice_nc
+chmod a+rx hycom_seaice_nc_LinuxGF_NC
+/bin/ln -s hycom_seaice_nc_LinuxGF_NC hycom_seaice_nc
+end
+foreach f ( wind_stat_nc wind_stat_range_nc )
+if ( ! -e wind_stat_nc_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find wind_stat_nc.f -prune -newer wind_stat_nc_LinuxGF_NC
+echo wind_stat_nc_LinuxGF_NC is already up to date
+wind_stat_nc_LinuxGF_NC is already up to date
+endif
+touch wind_stat_nc
+/bin/rm -f wind_stat_nc
+chmod a+rx wind_stat_nc_LinuxGF_NC
+end
+if ( ! -e wind_stat_range_nc_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find wind_stat_range_nc.f -prune -newer wind_stat_range_nc_LinuxGF_NC
+echo wind_stat_range_nc_LinuxGF_NC is already up to date
+wind_stat_range_nc_LinuxGF_NC is already up to date
+endif
+touch wind_stat_range_nc
+/bin/rm -f wind_stat_range_nc
+chmod a+rx wind_stat_range_nc_LinuxGF_NC
+end

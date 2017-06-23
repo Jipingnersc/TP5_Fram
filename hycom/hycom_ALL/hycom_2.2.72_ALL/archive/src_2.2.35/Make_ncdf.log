@@ -1,0 +1,26 @@
+Resetting modules to system default
+NCDF =  /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b
+ARCH =  intelGF_NC
+ln: failed to create symbolic link ‘./mod_plot.mod’: File exists
+ln: failed to create symbolic link ‘./mod_xc.mod’: File exists
+ln: failed to create symbolic link ‘./mod_za.mod’: File exists
+ln: failed to create symbolic link ‘./mod_zb.mod’: File exists
+ln: failed to create symbolic link ‘./netcdf4_f03.mod’: File exists
+ln: failed to create symbolic link ‘./netcdf4_nc_interfaces.mod’: File exists
+ln: failed to create symbolic link ‘./netcdf4_nf_interfaces.mod’: File exists
+ln: failed to create symbolic link ‘./netcdf_f03.mod’: File exists
+ln: failed to create symbolic link ‘./netcdf_fortv2_c_interfaces.mod’: File exists
+ln: failed to create symbolic link ‘./netcdf_nc_data.mod’: File exists
+ln: failed to create symbolic link ‘./netcdf_nc_interfaces.mod’: File exists
+ln: failed to create symbolic link ‘./netcdf_nf_data.mod’: File exists
+ln: failed to create symbolic link ‘./netcdf_nf_interfaces.mod’: File exists
+ln: failed to create symbolic link ‘./libnetcdff.a’: File exists
+Make worked: archv2ncdf2d
+Make worked: archm2ncdf2d
+Make worked: archv2ncdf2t
+Make worked: archv2ncdf3z
+Make worked: archm2ncdf3z
+Make worked: archv2ncdfsf
+Make worked: archv2ncdfsfl
+Make worked: archv2ncdfsfz
+Make worked: field2ncdf

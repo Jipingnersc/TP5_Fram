@@ -1,0 +1,1 @@
+gfortran -I/cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b/include  -fPIC -fno-second-underscore -fconvert=big-endian -O -fPIC -fno-second-underscore -O topo_shrink.o     zh.o mod_xc.o mod_za.o wtime.o -o topo_shrink

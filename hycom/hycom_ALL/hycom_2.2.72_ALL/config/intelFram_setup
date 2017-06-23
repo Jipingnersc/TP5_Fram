@@ -1,0 +1,55 @@
+#
+# ---------------------------------------------------------------------
+# common definitions for Intel Linux/IFC v8, single processor, real*8
+# starting with v8, ifort supports -convert big_endian
+# ---------------------------------------------------------------------
+#
+# MACROS      DESCRIPTIONS:
+#
+# FC:         Fortran 90 compiler.
+# FCFFLAGS:   Fortran 90 compilation flags.
+# CC:         C compiler.
+# CCFLAGS:    C compilation flags.
+# CPP:        cpp preprocessor (may be implied by FC).
+# CPPFLAGS:   cpp -D macro flags.
+# LD:         Loader.
+# LDFLAGS:    Loader flags.
+# EXTRALIBS:  Extra local libraries (if any).
+#
+FC            = gfortran	
+#FCFFLAGS      =	-g -tpp7 -O3 -convert big_endian -r8 
+#FCFFLAGS      =	-g -convert big_endian -assume byterecl -cm -vec_reprot0 -w -xCORE-AVX2 -o2 -no-prec-div -qopt-prefetch -auto-p32 -no-ansi-alias -qopt-mem-layout=2 -g -traceback
+FCFFLAGS      = -fPIC -fno-second-underscore -fconvert=big-endian -O	
+
+
+
+CC            =	gcc
+CCFLAGS       =	-O 
+CPP           =	/usr/bin/cpp -traditional-cpp -P
+CPPFLAGS      =	-DIA32 -DREAL4 -DSERIA_IO -DTIMER -DFFTW 
+#CPPFLAGS      =	-DIA32 -DREAL4 -DSERIA_IO -DTIMER -DFFTW -fPIC -fno-second-underscore -O
+
+LD            =	$(FC)
+#LDFLAGS       =	$(FCFFLAGS) -Vaxlib
+LDFLAGS       =	$(FCFFLAGS) 
+EXTRALIBS     =  -lfftw3 -lnetcdff -lnetcdf -lmkl
+
+
+#
+# --- generic make definitions
+#
+SHELL         = /bin/sh
+RM            = \rm -f
+
+#
+# rules.
+#
+
+.c.o:
+	$(CC) -c $(CPPFLAGS) $(CCFLAGS)  -o $*.o  $*.c
+
+.f.o:
+	$(FC)  -c            $(FCFFLAGS) -o $*.o  $*.f
+
+.F.o:
+	$(FC) -c $(CPPFLAGS) $(FCFFLAGS) -o $*.o $*.F

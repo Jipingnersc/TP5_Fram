@@ -1,0 +1,69 @@
+Firstly, after download the present source code through git clone https://github.com/nansencenter/NERSC-HYCOM-CICE by personal account, the source code can be obtained at the present location with the default organizations.
+As the introduction, the whole compiling are three main steps.
+
+The envioromental variables are loaded by .bash_profile, and the initial modules are listed in this file:
+  module restore system                                                                               
+  module load FFTW                                                                                    
+  module load NCL                                                                                     
+  module load netCDF-Fortran/4.4.4-intel-2016b                                                        
+  module load GSL/2.3-intel-2017a                                                                     
+  module load intel                                                                                   
+  module load bzip2/1.0.6-GCCcore-6.3.0                                                               
+
+Step 1: compiling MSCPROGS using intel compiler on Fram
+
+Currently Loaded Modules:
+  1) StdEnv                   (S)   9) netCDF-Fortran/4.4.4-intel-2016b                   17) iimpi/2016b
+  2) FFTW/3.3.6-intel-2017a        10) GSL/2.3-intel-2017a                                18) imkl/11.3.3.210-iimpi-2016b
+  3) NCL/6.4.0                     11) GCCcore/5.4.0                                      19) intel/2016b
+  4) zlib/1.2.8-intel-2016b        12) binutils/2.26-GCCcore-5.4.0                        20) expat/2.2.0-intel-2016b
+  5) Szip/2.1-intel-2016b          13) iccifort/2016.3.210-GCC-5.4.0-2.26                 21) UDUNITS/2.2.24-intel-2016b
+  6) HDF5/1.8.17-intel-2016b       14) icc/2016.3.210-GCC-5.4.0-2.26                      22) ncview/2.1.7-intel-2016b
+  7) cURL/7.49.1-intel-2016b       15) ifort/2016.3.210-GCC-5.4.0-2.26
+  8) netCDF/4.4.1-intel-2016b      16) impi/5.1.3.181-iccifort-2016.3.210-GCC-5.4.0-2.26
+  
+  The main modifications are 
+  1) define the compile flag file: make.fram.ifort under NERSC-HYCOM-CICE/hycom/MSCPROGS/src/Make.Inc
+  and then "ln -sf make.fram.ifort make.inc"
+  2) little correct the compile rules in Makefile under NERSC-HYCOM-CICE/hycom/MSCPROGS/src, then
+  make lib
+  make all
+  makd install
+  
+Step 2: compiling hycom_all using gfortran on Fram
+   use these modules:
+   module restore system
+   module load netCDF-Fortran/4.4.4-foss-2016b
+   module load bzip2/1.0.6-foss-2016b
+   module load NCL/6.4.0
+
+The main modifications under NERSC-HYCOM-CICE/hycom/hycom_ALL/hycom_2.2.72 are as following:
+1) define the compiler flags on Fram: ./config/intelGF_NC_setup, and then setenv ARCH intelGF_NC in Make_all.src 
+2) define and involve the correct netCDF module and directory as illustrated in Make_ncdr.src
+3) under the branch directories like archive(bin, cice, force, plot, roms, meanstd, ...)/src, some corrects in Makefile (Make_ncdf.com and Make_all.com) have done due to avoiding the wrong library file.
+Then 
+ csh Make_all.com >& out.1 
+ csh Make_ncdf.com >& out.2
+ 
+Step 3: compiling hycom_cice using gfortran on Fram
+  use these modules:
+  module restore system
+  module load ESMF/7.0.0-foss-2016b
+  module load PROJ/4.9.2-foss-2016b
+  module load Python/2.7.12-foss-2016b
+  module load UDUNITS/2.2.24-foss-2016b
+  module load imkl/11.3.4.258-iimpi-2016.04-GCC-5.4.0-2.26
+  module load iccifort/2016.4.258-GCC-5.4.0-2.26
+  module load icc/2016.4.258-GCC-5.4.0-2.26
+  module load ifort/2016.4.258-GCC-5.4.0-2.26
+
+This compiling should be done after the new region or experiment has been built because the model dimension and the tile size are constant in the performable program.
+For example: under the directory TP5a0.06/expt_01.0, the compile script of compile_model.sh requires the create_ref_case.sh can be sucessfully done.
+
+The main corrections are
+1) define the two files about compiler flags: Linux.ifort.fram_cice under the directory of NERSC-HYCOM-CICE/hycom/RELO/config 
+and Macros.Linux.ifort.fram under the directory of NERSC-HYCOM-CICE/cice/Release-5.1/bld;
+2) correct the script compile_model.sh introduces Fram (SITE) and defines ESMF_DIR;
+3) compile_model.sh -u -m fram ifort; under the directory build, the source code are copyed from NERSC-HYCOM-CICE/hycom/RELO/src_2.2.98ZA-07Tsig0-i-sm-sse_relo_mpi.
+If the model dimension or the tile size are different with those in dimension.h and dimension_relo.h, then these parameters should be changed by hand.
+And then compile again: compile_modle.sh -m fram ifort.

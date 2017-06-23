@@ -1,0 +1,1 @@
+gfortran -I/cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b/include  -fPIC -fno-second-underscore -fconvert=big-endian -O -fPIC -fno-second-underscore -O pcip_riv_hf.o mod_xc.o mod_za.o wtime.o  interp.o zh.o -o pcip_riv_hf

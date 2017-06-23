@@ -1,0 +1,1677 @@
+intelGF_NC
+PROCESSING archive/src:
+intelGF_NC
+Make worked: hycomarchv
+Make worked: micomarchv
+Make worked: conv_archv
+Make worked: hybgen_archv
+Make worked: mrgl_archv
+Make worked: ncoda_archv
+Make worked: ncoda_archv_inc
+Make worked: remap_archv
+Make worked: remapi_archv
+Make worked: trim_archv
+Make worked: archt2archv
+Make worked: archv2data2d
+Make worked: archm2data2d
+Make worked: archv2data2t
+Make worked: archv2data3z
+Make worked: archm2data3z
+Make worked: archv2datasf
+Make worked: archv2datasfl
+Make worked: archv2datasfz
+Make worked: archv2ncombc
+Make worked: archv2restart
+Make worked: archm2restart
+Make worked: field2data
+Make worked: restart2archv
+PROCESSING force/src:
+intelGF_NC
+Make worked: ap
+Make worked: diff
+Make worked: kp
+Make worked: kpc
+Make worked: kphfc
+Make worked: pzero
+Make worked: riv_mon
+Make worked: riv_hf
+Make worked: time_interp
+Make worked: tp
+Make worked: wi
+Make worked: wi_curl
+Make worked: wi_magstress
+Make worked: wi_meanfit
+Make worked: wc
+Make worked: zero
+Make worked: aphf_add
+Make worked: aphf_climo
+Make worked: aphf_diurnal
+Make worked: aphf_extend
+Make worked: aphf_flcorr
+Make worked: aphf_meanfit
+Make worked: aphf_monthly
+Make worked: aphf_offset
+Make worked: aphf_scale
+Make worked: aphf_tacorr
+Make worked: kphf_table
+PROCESSING meanstd/src:
+intelGF_NC
+Make worked: hycom_mean
+Make worked: hycom_std
+Make worked: hycom_diff
+Make worked: hycom_wsum
+Make worked: hesmf_mean
+Make worked: hesmf_std
+PROCESSING plot/src:
+intelGF_NC
+Make failed: hycomproc
+Make failed: micomproc
+Make failed: fieldproc
+Make failed: fieldcell
+Make failed: hp_meta
+Make failed: hp_psp
+Make failed: hp_psl
+Make failed: hp_x11
+Make failed: mp_meta
+Make failed: mp_psp
+Make failed: mp_psl
+Make failed: mp_x11
+Make failed: fp_meta
+Make failed: fp_psp
+Make failed: fp_psl
+Make failed: fp_x11
+Make failed: fc_meta
+Make failed: fc_psp
+Make failed: fc_psl
+Make failed: fc_x11
+PROCESSING relax/src:
+intelGF_NC
+Make worked: iso_density
+Make worked: relax_flat_rivers
+Make worked: relax_tracer
+Make worked: relaxi
+Make worked: relaxv
+Make worked: rmu
+Make worked: rmu2
+Make worked: tracer_const
+Make worked: z_archive
+Make worked: z_const
+Make worked: z_levitus
+Make worked: z_medatlas
+Make worked: z_modify
+Make worked: sst_pf
+Make worked: sst_pf_4km
+Make worked: z_woa_dynamic
+Make failed: relaxi_archvz
+PROCESSING sample/src:
+intelGF_NC
+Make worked: baro_vel
+Make worked: transport
+Make worked: transport2
+Make worked: transport3
+Make worked: transp_mn
+Make worked: transp_mn2
+Make worked: transp_mn3
+Make worked: transp_mn_2p0
+Make worked: meantspt
+Make worked: mergetspt
+PROCESSING subregion/src:
+intelGF_NC
+Make failed: sub_topog
+Make failed: sub_topog_panam
+Make failed: subregion
+Make failed: isub_topog
+Make worked: isubregion
+Make worked: isuba_arche
+Make worked: isuba_field
+Make worked: isuba_gmapi
+Make worked: isuba_topog
+Make worked: isubaregion
+Make worked: half_topog
+Make worked: sub_grid
+PROCESSING topo/src:
+intelGF_NC
+Make worked: malt2h
+Make worked: m2h
+Make worked: p2h
+Make worked: bathy_02min
+Make worked: bathy_05min
+Make worked: hudson
+Make worked: landsea_02min
+Make worked: landsea_05min
+Make worked: 1d
+Make worked: 2d
+Make worked: batrop
+Make worked: clip
+Make worked: diff
+Make worked: edit
+Make worked: flat
+Make worked: grid_360
+Make worked: hgram
+Make worked: landfill
+Make worked: landmask
+Make worked: latitude
+Make worked: lonlat
+Make worked: lonlat_2d
+Make worked: lpanam
+Make worked: map
+Make worked: mapsub
+Make worked: mercator
+Make worked: merge
+Make worked: modify
+Make worked: onesea
+Make worked: onesea-b
+Make worked: onesea_fill
+Make worked: panam
+Make worked: partit
+Make worked: partit_noshrink
+Make worked: partit_arctic
+Make worked: partit_arctic_ns
+Make worked: ppmX
+Make worked: ports
+Make worked: rotated
+Make worked: rough
+Make worked: shrink
+Make worked: slope
+Make worked: smallsea
+Make worked: smooth
+Make worked: smooth_skip
+Make worked: subset
+Make worked: tiles
+Make worked: zcells
+Make worked: zthin
+PROCESSING bin:
+setenv OS `uname`
+uname
+if ( Linux == Linux ) then
+if ( `/bin/uname -m` == x86_64 ) then
+/bin/uname -m
+setenv OS Linux64
+endif
+setenv OS LinuxGF_NC
+endif
+if ( LinuxGF_NC == UNICOS/mp ) then
+switch ( LinuxGF_NC )
+setenv FC gfortran
+setenv FFLAGS -fPIC -fno-second-underscore -fconvert=big-endian -O
+setenv FLIBS -lfftw3 -lnetcdff -lnetcdf 
+setenv CC gcc
+setenv CFLAGS -fPIC -fno-second-underscore -O
+breaksw
+foreach f ( echo2 endian )
+if ( ! -e echo2_LinuxGF_NC ) then
+if ( -f `find ${f}.c -prune -newer ${f}_${OS}` ) then
+find echo2.c -prune -newer echo2_LinuxGF_NC
+echo echo2_LinuxGF_NC is already up to date
+echo2_LinuxGF_NC is already up to date
+endif
+touch echo2
+/bin/rm -f echo2
+chmod a+rx echo2_LinuxGF_NC
+/bin/ln -s echo2_LinuxGF_NC echo2
+end
+if ( ! -e endian_LinuxGF_NC ) then
+if ( -f `find ${f}.c -prune -newer ${f}_${OS}` ) then
+find endian.c -prune -newer endian_LinuxGF_NC
+echo endian_LinuxGF_NC is already up to date
+endian_LinuxGF_NC is already up to date
+endif
+touch endian
+/bin/rm -f endian
+chmod a+rx endian_LinuxGF_NC
+/bin/ln -s endian_LinuxGF_NC endian
+end
+foreach f ( clim_stat wind_stat wind_stat_check wind_stat_range wind_stat_range2 wind_stat_range5 wind_stat_raw hycom_sigma )
+if ( ! -e clim_stat_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find clim_stat.f -prune -newer clim_stat_LinuxGF_NC
+echo clim_stat_LinuxGF_NC is already up to date
+clim_stat_LinuxGF_NC is already up to date
+endif
+end
+if ( ! -e wind_stat_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find wind_stat.f -prune -newer wind_stat_LinuxGF_NC
+echo wind_stat_LinuxGF_NC is already up to date
+wind_stat_LinuxGF_NC is already up to date
+endif
+end
+if ( ! -e wind_stat_check_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find wind_stat_check.f -prune -newer wind_stat_check_LinuxGF_NC
+echo wind_stat_check_LinuxGF_NC is already up to date
+wind_stat_check_LinuxGF_NC is already up to date
+endif
+end
+if ( ! -e wind_stat_range_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find wind_stat_range.f -prune -newer wind_stat_range_LinuxGF_NC
+echo wind_stat_range_LinuxGF_NC is already up to date
+wind_stat_range_LinuxGF_NC is already up to date
+endif
+end
+if ( ! -e wind_stat_range2_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find wind_stat_range2.f -prune -newer wind_stat_range2_LinuxGF_NC
+echo wind_stat_range2_LinuxGF_NC is already up to date
+wind_stat_range2_LinuxGF_NC is already up to date
+endif
+end
+if ( ! -e wind_stat_range5_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find wind_stat_range5.f -prune -newer wind_stat_range5_LinuxGF_NC
+echo wind_stat_range5_LinuxGF_NC is already up to date
+wind_stat_range5_LinuxGF_NC is already up to date
+endif
+end
+if ( ! -e wind_stat_raw_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find wind_stat_raw.f -prune -newer wind_stat_raw_LinuxGF_NC
+echo wind_stat_raw_LinuxGF_NC is already up to date
+wind_stat_raw_LinuxGF_NC is already up to date
+endif
+end
+if ( ! -e hycom_sigma_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_sigma.f -prune -newer hycom_sigma_LinuxGF_NC
+echo hycom_sigma_LinuxGF_NC is already up to date
+hycom_sigma_LinuxGF_NC is already up to date
+endif
+end
+foreach f ( cice_restart cice_stat hycom_palette lonlat_dist hycom_alat hycom_archm_dates hycom_archv_dates hycom_depth hycom_depth_40 hycom_nest_dates hycom_profile+sig hycom_profile+thstar hycom_profile2pcm hycom_profile2z hycom_profile2zi hycom_profile_locsig hycom_profile_mld hycom_profile_remap hycom_sigma hycom_ts hycom_wind_date hycom_wind_ymdh hycom_ymdh_wind hycom_yoflat sigma0_to_sigma2 sigma2_to_sigma0 ts_to_sigma z2zi zi2z hycom_date_wind hycom_profile2plm hycom_profile_hybgen_34 hycom_profile_hybgen_35 hycom_subset_xy hycom_dp0k hycom_dp0k_cm hycom_dp0k_sigma )
+if ( ! -e cice_restart_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find cice_restart.f -prune -newer cice_restart_LinuxGF_NC
+echo cice_restart_LinuxGF_NC is already up to date
+cice_restart_LinuxGF_NC is already up to date
+endif
+touch cice_restart
+/bin/rm -f cice_restart
+chmod a+rx cice_restart_LinuxGF_NC
+/bin/ln -s cice_restart_LinuxGF_NC cice_restart
+end
+if ( ! -e cice_stat_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find cice_stat.f -prune -newer cice_stat_LinuxGF_NC
+echo cice_stat_LinuxGF_NC is already up to date
+cice_stat_LinuxGF_NC is already up to date
+endif
+touch cice_stat
+/bin/rm -f cice_stat
+chmod a+rx cice_stat_LinuxGF_NC
+/bin/ln -s cice_stat_LinuxGF_NC cice_stat
+end
+if ( ! -e hycom_palette_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_palette.f -prune -newer hycom_palette_LinuxGF_NC
+echo hycom_palette_LinuxGF_NC is already up to date
+hycom_palette_LinuxGF_NC is already up to date
+endif
+touch hycom_palette
+/bin/rm -f hycom_palette
+chmod a+rx hycom_palette_LinuxGF_NC
+/bin/ln -s hycom_palette_LinuxGF_NC hycom_palette
+end
+if ( ! -e lonlat_dist_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find lonlat_dist.f -prune -newer lonlat_dist_LinuxGF_NC
+echo lonlat_dist_LinuxGF_NC is already up to date
+lonlat_dist_LinuxGF_NC is already up to date
+endif
+touch lonlat_dist
+/bin/rm -f lonlat_dist
+chmod a+rx lonlat_dist_LinuxGF_NC
+/bin/ln -s lonlat_dist_LinuxGF_NC lonlat_dist
+end
+if ( ! -e hycom_alat_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_alat.f -prune -newer hycom_alat_LinuxGF_NC
+echo hycom_alat_LinuxGF_NC is already up to date
+hycom_alat_LinuxGF_NC is already up to date
+endif
+touch hycom_alat
+/bin/rm -f hycom_alat
+chmod a+rx hycom_alat_LinuxGF_NC
+/bin/ln -s hycom_alat_LinuxGF_NC hycom_alat
+end
+if ( ! -e hycom_archm_dates_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_archm_dates.f -prune -newer hycom_archm_dates_LinuxGF_NC
+echo hycom_archm_dates_LinuxGF_NC is already up to date
+hycom_archm_dates_LinuxGF_NC is already up to date
+endif
+touch hycom_archm_dates
+/bin/rm -f hycom_archm_dates
+chmod a+rx hycom_archm_dates_LinuxGF_NC
+/bin/ln -s hycom_archm_dates_LinuxGF_NC hycom_archm_dates
+end
+if ( ! -e hycom_archv_dates_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_archv_dates.f -prune -newer hycom_archv_dates_LinuxGF_NC
+echo hycom_archv_dates_LinuxGF_NC is already up to date
+hycom_archv_dates_LinuxGF_NC is already up to date
+endif
+touch hycom_archv_dates
+/bin/rm -f hycom_archv_dates
+chmod a+rx hycom_archv_dates_LinuxGF_NC
+/bin/ln -s hycom_archv_dates_LinuxGF_NC hycom_archv_dates
+end
+if ( ! -e hycom_depth_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_depth.f -prune -newer hycom_depth_LinuxGF_NC
+echo hycom_depth_LinuxGF_NC is already up to date
+hycom_depth_LinuxGF_NC is already up to date
+endif
+touch hycom_depth
+/bin/rm -f hycom_depth
+chmod a+rx hycom_depth_LinuxGF_NC
+/bin/ln -s hycom_depth_LinuxGF_NC hycom_depth
+end
+if ( ! -e hycom_depth_40_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_depth_40.f -prune -newer hycom_depth_40_LinuxGF_NC
+echo hycom_depth_40_LinuxGF_NC is already up to date
+hycom_depth_40_LinuxGF_NC is already up to date
+endif
+touch hycom_depth_40
+/bin/rm -f hycom_depth_40
+chmod a+rx hycom_depth_40_LinuxGF_NC
+/bin/ln -s hycom_depth_40_LinuxGF_NC hycom_depth_40
+end
+if ( ! -e hycom_nest_dates_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_nest_dates.f -prune -newer hycom_nest_dates_LinuxGF_NC
+echo hycom_nest_dates_LinuxGF_NC is already up to date
+hycom_nest_dates_LinuxGF_NC is already up to date
+endif
+touch hycom_nest_dates
+/bin/rm -f hycom_nest_dates
+chmod a+rx hycom_nest_dates_LinuxGF_NC
+/bin/ln -s hycom_nest_dates_LinuxGF_NC hycom_nest_dates
+end
+if ( ! -e hycom_profile+sig_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile+sig.f -prune -newer hycom_profile+sig_LinuxGF_NC
+echo hycom_profile+sig_LinuxGF_NC is already up to date
+hycom_profile+sig_LinuxGF_NC is already up to date
+endif
+touch hycom_profile+sig
+/bin/rm -f hycom_profile+sig
+chmod a+rx hycom_profile+sig_LinuxGF_NC
+/bin/ln -s hycom_profile+sig_LinuxGF_NC hycom_profile+sig
+end
+if ( ! -e hycom_profile+thstar_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile+thstar.f -prune -newer hycom_profile+thstar_LinuxGF_NC
+echo hycom_profile+thstar_LinuxGF_NC is already up to date
+hycom_profile+thstar_LinuxGF_NC is already up to date
+endif
+touch hycom_profile+thstar
+/bin/rm -f hycom_profile+thstar
+chmod a+rx hycom_profile+thstar_LinuxGF_NC
+/bin/ln -s hycom_profile+thstar_LinuxGF_NC hycom_profile+thstar
+end
+if ( ! -e hycom_profile2pcm_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile2pcm.f -prune -newer hycom_profile2pcm_LinuxGF_NC
+echo hycom_profile2pcm_LinuxGF_NC is already up to date
+hycom_profile2pcm_LinuxGF_NC is already up to date
+endif
+touch hycom_profile2pcm
+/bin/rm -f hycom_profile2pcm
+chmod a+rx hycom_profile2pcm_LinuxGF_NC
+/bin/ln -s hycom_profile2pcm_LinuxGF_NC hycom_profile2pcm
+end
+if ( ! -e hycom_profile2z_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile2z.f -prune -newer hycom_profile2z_LinuxGF_NC
+echo hycom_profile2z_LinuxGF_NC is already up to date
+hycom_profile2z_LinuxGF_NC is already up to date
+endif
+touch hycom_profile2z
+/bin/rm -f hycom_profile2z
+chmod a+rx hycom_profile2z_LinuxGF_NC
+/bin/ln -s hycom_profile2z_LinuxGF_NC hycom_profile2z
+end
+if ( ! -e hycom_profile2zi_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile2zi.f -prune -newer hycom_profile2zi_LinuxGF_NC
+echo hycom_profile2zi_LinuxGF_NC is already up to date
+hycom_profile2zi_LinuxGF_NC is already up to date
+endif
+touch hycom_profile2zi
+/bin/rm -f hycom_profile2zi
+chmod a+rx hycom_profile2zi_LinuxGF_NC
+/bin/ln -s hycom_profile2zi_LinuxGF_NC hycom_profile2zi
+end
+if ( ! -e hycom_profile_locsig_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile_locsig.f -prune -newer hycom_profile_locsig_LinuxGF_NC
+echo hycom_profile_locsig_LinuxGF_NC is already up to date
+hycom_profile_locsig_LinuxGF_NC is already up to date
+endif
+touch hycom_profile_locsig
+/bin/rm -f hycom_profile_locsig
+chmod a+rx hycom_profile_locsig_LinuxGF_NC
+/bin/ln -s hycom_profile_locsig_LinuxGF_NC hycom_profile_locsig
+end
+if ( ! -e hycom_profile_mld_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile_mld.f -prune -newer hycom_profile_mld_LinuxGF_NC
+echo hycom_profile_mld_LinuxGF_NC is already up to date
+hycom_profile_mld_LinuxGF_NC is already up to date
+endif
+touch hycom_profile_mld
+/bin/rm -f hycom_profile_mld
+chmod a+rx hycom_profile_mld_LinuxGF_NC
+/bin/ln -s hycom_profile_mld_LinuxGF_NC hycom_profile_mld
+end
+if ( ! -e hycom_profile_remap_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile_remap.f -prune -newer hycom_profile_remap_LinuxGF_NC
+echo hycom_profile_remap_LinuxGF_NC is already up to date
+hycom_profile_remap_LinuxGF_NC is already up to date
+endif
+touch hycom_profile_remap
+/bin/rm -f hycom_profile_remap
+chmod a+rx hycom_profile_remap_LinuxGF_NC
+/bin/ln -s hycom_profile_remap_LinuxGF_NC hycom_profile_remap
+end
+if ( ! -e hycom_sigma_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_sigma.f -prune -newer hycom_sigma_LinuxGF_NC
+echo hycom_sigma_LinuxGF_NC is already up to date
+hycom_sigma_LinuxGF_NC is already up to date
+endif
+touch hycom_sigma
+/bin/rm -f hycom_sigma
+chmod a+rx hycom_sigma_LinuxGF_NC
+/bin/ln -s hycom_sigma_LinuxGF_NC hycom_sigma
+end
+if ( ! -e hycom_ts_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_ts.f -prune -newer hycom_ts_LinuxGF_NC
+echo hycom_ts_LinuxGF_NC is already up to date
+hycom_ts_LinuxGF_NC is already up to date
+endif
+touch hycom_ts
+/bin/rm -f hycom_ts
+chmod a+rx hycom_ts_LinuxGF_NC
+/bin/ln -s hycom_ts_LinuxGF_NC hycom_ts
+end
+if ( ! -e hycom_wind_date_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_wind_date.f -prune -newer hycom_wind_date_LinuxGF_NC
+echo hycom_wind_date_LinuxGF_NC is already up to date
+hycom_wind_date_LinuxGF_NC is already up to date
+endif
+touch hycom_wind_date
+/bin/rm -f hycom_wind_date
+chmod a+rx hycom_wind_date_LinuxGF_NC
+/bin/ln -s hycom_wind_date_LinuxGF_NC hycom_wind_date
+end
+if ( ! -e hycom_wind_ymdh_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_wind_ymdh.f -prune -newer hycom_wind_ymdh_LinuxGF_NC
+echo hycom_wind_ymdh_LinuxGF_NC is already up to date
+hycom_wind_ymdh_LinuxGF_NC is already up to date
+endif
+touch hycom_wind_ymdh
+/bin/rm -f hycom_wind_ymdh
+chmod a+rx hycom_wind_ymdh_LinuxGF_NC
+/bin/ln -s hycom_wind_ymdh_LinuxGF_NC hycom_wind_ymdh
+end
+if ( ! -e hycom_ymdh_wind_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_ymdh_wind.f -prune -newer hycom_ymdh_wind_LinuxGF_NC
+echo hycom_ymdh_wind_LinuxGF_NC is already up to date
+hycom_ymdh_wind_LinuxGF_NC is already up to date
+endif
+touch hycom_ymdh_wind
+/bin/rm -f hycom_ymdh_wind
+chmod a+rx hycom_ymdh_wind_LinuxGF_NC
+/bin/ln -s hycom_ymdh_wind_LinuxGF_NC hycom_ymdh_wind
+end
+if ( ! -e hycom_yoflat_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_yoflat.f -prune -newer hycom_yoflat_LinuxGF_NC
+echo hycom_yoflat_LinuxGF_NC is already up to date
+hycom_yoflat_LinuxGF_NC is already up to date
+endif
+touch hycom_yoflat
+/bin/rm -f hycom_yoflat
+chmod a+rx hycom_yoflat_LinuxGF_NC
+/bin/ln -s hycom_yoflat_LinuxGF_NC hycom_yoflat
+end
+if ( ! -e sigma0_to_sigma2_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find sigma0_to_sigma2.f -prune -newer sigma0_to_sigma2_LinuxGF_NC
+echo sigma0_to_sigma2_LinuxGF_NC is already up to date
+sigma0_to_sigma2_LinuxGF_NC is already up to date
+endif
+touch sigma0_to_sigma2
+/bin/rm -f sigma0_to_sigma2
+chmod a+rx sigma0_to_sigma2_LinuxGF_NC
+/bin/ln -s sigma0_to_sigma2_LinuxGF_NC sigma0_to_sigma2
+end
+if ( ! -e sigma2_to_sigma0_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find sigma2_to_sigma0.f -prune -newer sigma2_to_sigma0_LinuxGF_NC
+echo sigma2_to_sigma0_LinuxGF_NC is already up to date
+sigma2_to_sigma0_LinuxGF_NC is already up to date
+endif
+touch sigma2_to_sigma0
+/bin/rm -f sigma2_to_sigma0
+chmod a+rx sigma2_to_sigma0_LinuxGF_NC
+/bin/ln -s sigma2_to_sigma0_LinuxGF_NC sigma2_to_sigma0
+end
+if ( ! -e ts_to_sigma_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find ts_to_sigma.f -prune -newer ts_to_sigma_LinuxGF_NC
+echo ts_to_sigma_LinuxGF_NC is already up to date
+ts_to_sigma_LinuxGF_NC is already up to date
+endif
+touch ts_to_sigma
+/bin/rm -f ts_to_sigma
+chmod a+rx ts_to_sigma_LinuxGF_NC
+/bin/ln -s ts_to_sigma_LinuxGF_NC ts_to_sigma
+end
+if ( ! -e z2zi_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find z2zi.f -prune -newer z2zi_LinuxGF_NC
+echo z2zi_LinuxGF_NC is already up to date
+z2zi_LinuxGF_NC is already up to date
+endif
+touch z2zi
+/bin/rm -f z2zi
+chmod a+rx z2zi_LinuxGF_NC
+/bin/ln -s z2zi_LinuxGF_NC z2zi
+end
+if ( ! -e zi2z_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find zi2z.f -prune -newer zi2z_LinuxGF_NC
+echo zi2z_LinuxGF_NC is already up to date
+zi2z_LinuxGF_NC is already up to date
+endif
+touch zi2z
+/bin/rm -f zi2z
+chmod a+rx zi2z_LinuxGF_NC
+/bin/ln -s zi2z_LinuxGF_NC zi2z
+end
+if ( ! -e hycom_date_wind_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_date_wind.f -prune -newer hycom_date_wind_LinuxGF_NC
+echo hycom_date_wind_LinuxGF_NC is already up to date
+hycom_date_wind_LinuxGF_NC is already up to date
+endif
+touch hycom_date_wind
+/bin/rm -f hycom_date_wind
+chmod a+rx hycom_date_wind_LinuxGF_NC
+/bin/ln -s hycom_date_wind_LinuxGF_NC hycom_date_wind
+end
+if ( ! -e hycom_profile2plm_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile2plm.f -prune -newer hycom_profile2plm_LinuxGF_NC
+echo hycom_profile2plm_LinuxGF_NC is already up to date
+hycom_profile2plm_LinuxGF_NC is already up to date
+endif
+touch hycom_profile2plm
+/bin/rm -f hycom_profile2plm
+chmod a+rx hycom_profile2plm_LinuxGF_NC
+/bin/ln -s hycom_profile2plm_LinuxGF_NC hycom_profile2plm
+end
+if ( ! -e hycom_profile_hybgen_34_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile_hybgen_34.f -prune -newer hycom_profile_hybgen_34_LinuxGF_NC
+echo hycom_profile_hybgen_34_LinuxGF_NC is already up to date
+hycom_profile_hybgen_34_LinuxGF_NC is already up to date
+endif
+touch hycom_profile_hybgen_34
+/bin/rm -f hycom_profile_hybgen_34
+chmod a+rx hycom_profile_hybgen_34_LinuxGF_NC
+/bin/ln -s hycom_profile_hybgen_34_LinuxGF_NC hycom_profile_hybgen_34
+end
+if ( ! -e hycom_profile_hybgen_35_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_profile_hybgen_35.f -prune -newer hycom_profile_hybgen_35_LinuxGF_NC
+echo hycom_profile_hybgen_35_LinuxGF_NC is already up to date
+hycom_profile_hybgen_35_LinuxGF_NC is already up to date
+endif
+touch hycom_profile_hybgen_35
+/bin/rm -f hycom_profile_hybgen_35
+chmod a+rx hycom_profile_hybgen_35_LinuxGF_NC
+/bin/ln -s hycom_profile_hybgen_35_LinuxGF_NC hycom_profile_hybgen_35
+end
+if ( ! -e hycom_subset_xy_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_subset_xy.f -prune -newer hycom_subset_xy_LinuxGF_NC
+echo hycom_subset_xy_LinuxGF_NC is already up to date
+hycom_subset_xy_LinuxGF_NC is already up to date
+endif
+touch hycom_subset_xy
+/bin/rm -f hycom_subset_xy
+chmod a+rx hycom_subset_xy_LinuxGF_NC
+/bin/ln -s hycom_subset_xy_LinuxGF_NC hycom_subset_xy
+end
+if ( ! -e hycom_dp0k_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_dp0k.f -prune -newer hycom_dp0k_LinuxGF_NC
+echo hycom_dp0k_LinuxGF_NC is already up to date
+hycom_dp0k_LinuxGF_NC is already up to date
+endif
+touch hycom_dp0k
+/bin/rm -f hycom_dp0k
+chmod a+rx hycom_dp0k_LinuxGF_NC
+/bin/ln -s hycom_dp0k_LinuxGF_NC hycom_dp0k
+end
+if ( ! -e hycom_dp0k_cm_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_dp0k_cm.f -prune -newer hycom_dp0k_cm_LinuxGF_NC
+echo hycom_dp0k_cm_LinuxGF_NC is already up to date
+hycom_dp0k_cm_LinuxGF_NC is already up to date
+endif
+touch hycom_dp0k_cm
+/bin/rm -f hycom_dp0k_cm
+chmod a+rx hycom_dp0k_cm_LinuxGF_NC
+/bin/ln -s hycom_dp0k_cm_LinuxGF_NC hycom_dp0k_cm
+end
+if ( ! -e hycom_dp0k_sigma_LinuxGF_NC ) then
+if ( -f `find ${f}.f -prune -newer ${f}_${OS}` ) then
+find hycom_dp0k_sigma.f -prune -newer hycom_dp0k_sigma_LinuxGF_NC
+echo hycom_dp0k_sigma_LinuxGF_NC is already up to date
+hycom_dp0k_sigma_LinuxGF_NC is already up to date
+endif
+touch hycom_dp0k_sigma
+/bin/rm -f hycom_dp0k_sigma
+chmod a+rx hycom_dp0k_sigma_LinuxGF_NC
+/bin/ln -s hycom_dp0k_sigma_LinuxGF_NC hycom_dp0k_sigma
+end
+gfortran -fPIC -fno-second-underscore -fconvert=big-endian -O -c hycom_endian_io.F
+gcc -fPIC -fno-second-underscore -O -c parse.c
+cc1: warning: command line option ‘-fno-second-underscore’ is valid for Fortran but not for C
+foreach f ( hycom_crosscorr hycom_crosscorr_lag hycom_join unf42hycom unf82hycom hycom2raw hycom2raw8 hycom_1st_isopyc hycom_arctic hycom_arctic_ok hycom_bandmask hycom_binning hycom_binning_fld hycom_bouflx hycom_clip hycom_count hycom_eddy_center hycom_expr hycom_extract hycom_fill hycom_halfsm hycom_histogram hycom_ij2lonlat hycom_islands hycom_larger hycom_lonlat2ij hycom_lonlat2xy hycom_mask hycom_mass hycom_mean hycom_meanfit hycom_median hycom_meridional hycom_meridional_lon hycom_mixlay hycom_mixlay_old hycom_mxthrd hycom_NaN hycom_print hycom_range hycom_range_ij hycom_rivers hycom_rotate hycom_runmean hycom_sample hycom_sample_list hycom_sea_ok hycom_shift hycom_skill hycom_slopefit hycom_smooth hycom_stericssh hycom_subset hycom_superset hycom_thirdsm hycom_tidelat hycom_triple hycom_void hycom_xy2lonlat hycom_zonal hycom_zonal_lat ascii2hycom raw2hycom raw82hycom hycom_2d_ok hycom_autocorr hycom_autocorr_lag hycom_boxmean hycom_boxtime hycom_index_sort hycom_mask_ok hycom_mass_corr hycom_newzi hycom_quadlsq hycom_regression hycom_sstice hycom_botfric hycom_boxsmooth hycom_diflat hycom_merge hycom_sample_xy hycom_scatter hycom_tidebody hycom_vmean hycom_xward )
+if ( ! -e hycom_crosscorr_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_crosscorr.F -prune -newer hycom_crosscorr_LinuxGF_NC
+echo hycom_crosscorr_LinuxGF_NC is already up to date
+hycom_crosscorr_LinuxGF_NC is already up to date
+endif
+touch hycom_crosscorr
+/bin/rm -f hycom_crosscorr
+chmod a+rx hycom_crosscorr_LinuxGF_NC
+/bin/ln -s hycom_crosscorr_LinuxGF_NC hycom_crosscorr
+end
+if ( ! -e hycom_crosscorr_lag_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_crosscorr_lag.F -prune -newer hycom_crosscorr_lag_LinuxGF_NC
+echo hycom_crosscorr_lag_LinuxGF_NC is already up to date
+hycom_crosscorr_lag_LinuxGF_NC is already up to date
+endif
+touch hycom_crosscorr_lag
+/bin/rm -f hycom_crosscorr_lag
+chmod a+rx hycom_crosscorr_lag_LinuxGF_NC
+/bin/ln -s hycom_crosscorr_lag_LinuxGF_NC hycom_crosscorr_lag
+end
+if ( ! -e hycom_join_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_join.F -prune -newer hycom_join_LinuxGF_NC
+echo hycom_join_LinuxGF_NC is already up to date
+hycom_join_LinuxGF_NC is already up to date
+endif
+touch hycom_join
+/bin/rm -f hycom_join
+chmod a+rx hycom_join_LinuxGF_NC
+/bin/ln -s hycom_join_LinuxGF_NC hycom_join
+end
+if ( ! -e unf42hycom_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find unf42hycom.F -prune -newer unf42hycom_LinuxGF_NC
+echo unf42hycom_LinuxGF_NC is already up to date
+unf42hycom_LinuxGF_NC is already up to date
+endif
+touch unf42hycom
+/bin/rm -f unf42hycom
+chmod a+rx unf42hycom_LinuxGF_NC
+/bin/ln -s unf42hycom_LinuxGF_NC unf42hycom
+end
+if ( ! -e unf82hycom_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find unf82hycom.F -prune -newer unf82hycom_LinuxGF_NC
+echo unf82hycom_LinuxGF_NC is already up to date
+unf82hycom_LinuxGF_NC is already up to date
+endif
+touch unf82hycom
+/bin/rm -f unf82hycom
+chmod a+rx unf82hycom_LinuxGF_NC
+/bin/ln -s unf82hycom_LinuxGF_NC unf82hycom
+end
+if ( ! -e hycom2raw_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom2raw.F -prune -newer hycom2raw_LinuxGF_NC
+echo hycom2raw_LinuxGF_NC is already up to date
+hycom2raw_LinuxGF_NC is already up to date
+endif
+touch hycom2raw
+/bin/rm -f hycom2raw
+chmod a+rx hycom2raw_LinuxGF_NC
+/bin/ln -s hycom2raw_LinuxGF_NC hycom2raw
+end
+if ( ! -e hycom2raw8_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom2raw8.F -prune -newer hycom2raw8_LinuxGF_NC
+echo hycom2raw8_LinuxGF_NC is already up to date
+hycom2raw8_LinuxGF_NC is already up to date
+endif
+touch hycom2raw8
+/bin/rm -f hycom2raw8
+chmod a+rx hycom2raw8_LinuxGF_NC
+/bin/ln -s hycom2raw8_LinuxGF_NC hycom2raw8
+end
+if ( ! -e hycom_1st_isopyc_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_1st_isopyc.F -prune -newer hycom_1st_isopyc_LinuxGF_NC
+echo hycom_1st_isopyc_LinuxGF_NC is already up to date
+hycom_1st_isopyc_LinuxGF_NC is already up to date
+endif
+touch hycom_1st_isopyc
+/bin/rm -f hycom_1st_isopyc
+chmod a+rx hycom_1st_isopyc_LinuxGF_NC
+/bin/ln -s hycom_1st_isopyc_LinuxGF_NC hycom_1st_isopyc
+end
+if ( ! -e hycom_arctic_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_arctic.F -prune -newer hycom_arctic_LinuxGF_NC
+echo hycom_arctic_LinuxGF_NC is already up to date
+hycom_arctic_LinuxGF_NC is already up to date
+endif
+touch hycom_arctic
+/bin/rm -f hycom_arctic
+chmod a+rx hycom_arctic_LinuxGF_NC
+/bin/ln -s hycom_arctic_LinuxGF_NC hycom_arctic
+end
+if ( ! -e hycom_arctic_ok_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_arctic_ok.F -prune -newer hycom_arctic_ok_LinuxGF_NC
+echo hycom_arctic_ok_LinuxGF_NC is already up to date
+hycom_arctic_ok_LinuxGF_NC is already up to date
+endif
+touch hycom_arctic_ok
+/bin/rm -f hycom_arctic_ok
+chmod a+rx hycom_arctic_ok_LinuxGF_NC
+/bin/ln -s hycom_arctic_ok_LinuxGF_NC hycom_arctic_ok
+end
+if ( ! -e hycom_bandmask_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_bandmask.F -prune -newer hycom_bandmask_LinuxGF_NC
+echo hycom_bandmask_LinuxGF_NC is already up to date
+hycom_bandmask_LinuxGF_NC is already up to date
+endif
+touch hycom_bandmask
+/bin/rm -f hycom_bandmask
+chmod a+rx hycom_bandmask_LinuxGF_NC
+/bin/ln -s hycom_bandmask_LinuxGF_NC hycom_bandmask
+end
+if ( ! -e hycom_binning_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_binning.F -prune -newer hycom_binning_LinuxGF_NC
+echo hycom_binning_LinuxGF_NC is already up to date
+hycom_binning_LinuxGF_NC is already up to date
+endif
+touch hycom_binning
+/bin/rm -f hycom_binning
+chmod a+rx hycom_binning_LinuxGF_NC
+/bin/ln -s hycom_binning_LinuxGF_NC hycom_binning
+end
+if ( ! -e hycom_binning_fld_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_binning_fld.F -prune -newer hycom_binning_fld_LinuxGF_NC
+echo hycom_binning_fld_LinuxGF_NC is already up to date
+hycom_binning_fld_LinuxGF_NC is already up to date
+endif
+touch hycom_binning_fld
+/bin/rm -f hycom_binning_fld
+chmod a+rx hycom_binning_fld_LinuxGF_NC
+/bin/ln -s hycom_binning_fld_LinuxGF_NC hycom_binning_fld
+end
+if ( ! -e hycom_bouflx_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_bouflx.F -prune -newer hycom_bouflx_LinuxGF_NC
+echo hycom_bouflx_LinuxGF_NC is already up to date
+hycom_bouflx_LinuxGF_NC is already up to date
+endif
+touch hycom_bouflx
+/bin/rm -f hycom_bouflx
+chmod a+rx hycom_bouflx_LinuxGF_NC
+/bin/ln -s hycom_bouflx_LinuxGF_NC hycom_bouflx
+end
+if ( ! -e hycom_clip_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_clip.F -prune -newer hycom_clip_LinuxGF_NC
+echo hycom_clip_LinuxGF_NC is already up to date
+hycom_clip_LinuxGF_NC is already up to date
+endif
+touch hycom_clip
+/bin/rm -f hycom_clip
+chmod a+rx hycom_clip_LinuxGF_NC
+/bin/ln -s hycom_clip_LinuxGF_NC hycom_clip
+end
+if ( ! -e hycom_count_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_count.F -prune -newer hycom_count_LinuxGF_NC
+echo hycom_count_LinuxGF_NC is already up to date
+hycom_count_LinuxGF_NC is already up to date
+endif
+touch hycom_count
+/bin/rm -f hycom_count
+chmod a+rx hycom_count_LinuxGF_NC
+/bin/ln -s hycom_count_LinuxGF_NC hycom_count
+end
+if ( ! -e hycom_eddy_center_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_eddy_center.F -prune -newer hycom_eddy_center_LinuxGF_NC
+echo hycom_eddy_center_LinuxGF_NC is already up to date
+hycom_eddy_center_LinuxGF_NC is already up to date
+endif
+touch hycom_eddy_center
+/bin/rm -f hycom_eddy_center
+chmod a+rx hycom_eddy_center_LinuxGF_NC
+/bin/ln -s hycom_eddy_center_LinuxGF_NC hycom_eddy_center
+end
+if ( ! -e hycom_expr_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_expr.F -prune -newer hycom_expr_LinuxGF_NC
+echo hycom_expr_LinuxGF_NC is already up to date
+hycom_expr_LinuxGF_NC is already up to date
+endif
+touch hycom_expr
+/bin/rm -f hycom_expr
+chmod a+rx hycom_expr_LinuxGF_NC
+/bin/ln -s hycom_expr_LinuxGF_NC hycom_expr
+end
+if ( ! -e hycom_extract_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_extract.F -prune -newer hycom_extract_LinuxGF_NC
+echo hycom_extract_LinuxGF_NC is already up to date
+hycom_extract_LinuxGF_NC is already up to date
+endif
+touch hycom_extract
+/bin/rm -f hycom_extract
+chmod a+rx hycom_extract_LinuxGF_NC
+/bin/ln -s hycom_extract_LinuxGF_NC hycom_extract
+end
+if ( ! -e hycom_fill_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_fill.F -prune -newer hycom_fill_LinuxGF_NC
+echo hycom_fill_LinuxGF_NC is already up to date
+hycom_fill_LinuxGF_NC is already up to date
+endif
+touch hycom_fill
+/bin/rm -f hycom_fill
+chmod a+rx hycom_fill_LinuxGF_NC
+/bin/ln -s hycom_fill_LinuxGF_NC hycom_fill
+end
+if ( ! -e hycom_halfsm_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_halfsm.F -prune -newer hycom_halfsm_LinuxGF_NC
+echo hycom_halfsm_LinuxGF_NC is already up to date
+hycom_halfsm_LinuxGF_NC is already up to date
+endif
+touch hycom_halfsm
+/bin/rm -f hycom_halfsm
+chmod a+rx hycom_halfsm_LinuxGF_NC
+/bin/ln -s hycom_halfsm_LinuxGF_NC hycom_halfsm
+end
+if ( ! -e hycom_histogram_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_histogram.F -prune -newer hycom_histogram_LinuxGF_NC
+echo hycom_histogram_LinuxGF_NC is already up to date
+hycom_histogram_LinuxGF_NC is already up to date
+endif
+touch hycom_histogram
+/bin/rm -f hycom_histogram
+chmod a+rx hycom_histogram_LinuxGF_NC
+/bin/ln -s hycom_histogram_LinuxGF_NC hycom_histogram
+end
+if ( ! -e hycom_ij2lonlat_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_ij2lonlat.F -prune -newer hycom_ij2lonlat_LinuxGF_NC
+echo hycom_ij2lonlat_LinuxGF_NC is already up to date
+hycom_ij2lonlat_LinuxGF_NC is already up to date
+endif
+touch hycom_ij2lonlat
+/bin/rm -f hycom_ij2lonlat
+chmod a+rx hycom_ij2lonlat_LinuxGF_NC
+/bin/ln -s hycom_ij2lonlat_LinuxGF_NC hycom_ij2lonlat
+end
+if ( ! -e hycom_islands_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_islands.F -prune -newer hycom_islands_LinuxGF_NC
+echo hycom_islands_LinuxGF_NC is already up to date
+hycom_islands_LinuxGF_NC is already up to date
+endif
+touch hycom_islands
+/bin/rm -f hycom_islands
+chmod a+rx hycom_islands_LinuxGF_NC
+/bin/ln -s hycom_islands_LinuxGF_NC hycom_islands
+end
+if ( ! -e hycom_larger_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_larger.F -prune -newer hycom_larger_LinuxGF_NC
+echo hycom_larger_LinuxGF_NC is already up to date
+hycom_larger_LinuxGF_NC is already up to date
+endif
+touch hycom_larger
+/bin/rm -f hycom_larger
+chmod a+rx hycom_larger_LinuxGF_NC
+/bin/ln -s hycom_larger_LinuxGF_NC hycom_larger
+end
+if ( ! -e hycom_lonlat2ij_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_lonlat2ij.F -prune -newer hycom_lonlat2ij_LinuxGF_NC
+echo hycom_lonlat2ij_LinuxGF_NC is already up to date
+hycom_lonlat2ij_LinuxGF_NC is already up to date
+endif
+touch hycom_lonlat2ij
+/bin/rm -f hycom_lonlat2ij
+chmod a+rx hycom_lonlat2ij_LinuxGF_NC
+/bin/ln -s hycom_lonlat2ij_LinuxGF_NC hycom_lonlat2ij
+end
+if ( ! -e hycom_lonlat2xy_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_lonlat2xy.F -prune -newer hycom_lonlat2xy_LinuxGF_NC
+echo hycom_lonlat2xy_LinuxGF_NC is already up to date
+hycom_lonlat2xy_LinuxGF_NC is already up to date
+endif
+touch hycom_lonlat2xy
+/bin/rm -f hycom_lonlat2xy
+chmod a+rx hycom_lonlat2xy_LinuxGF_NC
+/bin/ln -s hycom_lonlat2xy_LinuxGF_NC hycom_lonlat2xy
+end
+if ( ! -e hycom_mask_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_mask.F -prune -newer hycom_mask_LinuxGF_NC
+echo hycom_mask_LinuxGF_NC is already up to date
+hycom_mask_LinuxGF_NC is already up to date
+endif
+touch hycom_mask
+/bin/rm -f hycom_mask
+chmod a+rx hycom_mask_LinuxGF_NC
+/bin/ln -s hycom_mask_LinuxGF_NC hycom_mask
+end
+if ( ! -e hycom_mass_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_mass.F -prune -newer hycom_mass_LinuxGF_NC
+echo hycom_mass_LinuxGF_NC is already up to date
+hycom_mass_LinuxGF_NC is already up to date
+endif
+touch hycom_mass
+/bin/rm -f hycom_mass
+chmod a+rx hycom_mass_LinuxGF_NC
+/bin/ln -s hycom_mass_LinuxGF_NC hycom_mass
+end
+if ( ! -e hycom_mean_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_mean.F -prune -newer hycom_mean_LinuxGF_NC
+echo hycom_mean_LinuxGF_NC is already up to date
+hycom_mean_LinuxGF_NC is already up to date
+endif
+touch hycom_mean
+/bin/rm -f hycom_mean
+chmod a+rx hycom_mean_LinuxGF_NC
+/bin/ln -s hycom_mean_LinuxGF_NC hycom_mean
+end
+if ( ! -e hycom_meanfit_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_meanfit.F -prune -newer hycom_meanfit_LinuxGF_NC
+echo hycom_meanfit_LinuxGF_NC is already up to date
+hycom_meanfit_LinuxGF_NC is already up to date
+endif
+touch hycom_meanfit
+/bin/rm -f hycom_meanfit
+chmod a+rx hycom_meanfit_LinuxGF_NC
+/bin/ln -s hycom_meanfit_LinuxGF_NC hycom_meanfit
+end
+if ( ! -e hycom_median_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_median.F -prune -newer hycom_median_LinuxGF_NC
+echo hycom_median_LinuxGF_NC is already up to date
+hycom_median_LinuxGF_NC is already up to date
+endif
+touch hycom_median
+/bin/rm -f hycom_median
+chmod a+rx hycom_median_LinuxGF_NC
+/bin/ln -s hycom_median_LinuxGF_NC hycom_median
+end
+if ( ! -e hycom_meridional_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_meridional.F -prune -newer hycom_meridional_LinuxGF_NC
+echo hycom_meridional_LinuxGF_NC is already up to date
+hycom_meridional_LinuxGF_NC is already up to date
+endif
+touch hycom_meridional
+/bin/rm -f hycom_meridional
+chmod a+rx hycom_meridional_LinuxGF_NC
+/bin/ln -s hycom_meridional_LinuxGF_NC hycom_meridional
+end
+if ( ! -e hycom_meridional_lon_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_meridional_lon.F -prune -newer hycom_meridional_lon_LinuxGF_NC
+echo hycom_meridional_lon_LinuxGF_NC is already up to date
+hycom_meridional_lon_LinuxGF_NC is already up to date
+endif
+touch hycom_meridional_lon
+/bin/rm -f hycom_meridional_lon
+chmod a+rx hycom_meridional_lon_LinuxGF_NC
+/bin/ln -s hycom_meridional_lon_LinuxGF_NC hycom_meridional_lon
+end
+if ( ! -e hycom_mixlay_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_mixlay.F -prune -newer hycom_mixlay_LinuxGF_NC
+echo hycom_mixlay_LinuxGF_NC is already up to date
+hycom_mixlay_LinuxGF_NC is already up to date
+endif
+touch hycom_mixlay
+/bin/rm -f hycom_mixlay
+chmod a+rx hycom_mixlay_LinuxGF_NC
+/bin/ln -s hycom_mixlay_LinuxGF_NC hycom_mixlay
+end
+if ( ! -e hycom_mixlay_old_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_mixlay_old.F -prune -newer hycom_mixlay_old_LinuxGF_NC
+echo hycom_mixlay_old_LinuxGF_NC is already up to date
+hycom_mixlay_old_LinuxGF_NC is already up to date
+endif
+touch hycom_mixlay_old
+/bin/rm -f hycom_mixlay_old
+chmod a+rx hycom_mixlay_old_LinuxGF_NC
+/bin/ln -s hycom_mixlay_old_LinuxGF_NC hycom_mixlay_old
+end
+if ( ! -e hycom_mxthrd_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_mxthrd.F -prune -newer hycom_mxthrd_LinuxGF_NC
+echo hycom_mxthrd_LinuxGF_NC is already up to date
+hycom_mxthrd_LinuxGF_NC is already up to date
+endif
+touch hycom_mxthrd
+/bin/rm -f hycom_mxthrd
+chmod a+rx hycom_mxthrd_LinuxGF_NC
+/bin/ln -s hycom_mxthrd_LinuxGF_NC hycom_mxthrd
+end
+if ( ! -e hycom_NaN_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_NaN.F -prune -newer hycom_NaN_LinuxGF_NC
+echo hycom_NaN_LinuxGF_NC is already up to date
+hycom_NaN_LinuxGF_NC is already up to date
+endif
+touch hycom_NaN
+/bin/rm -f hycom_NaN
+chmod a+rx hycom_NaN_LinuxGF_NC
+/bin/ln -s hycom_NaN_LinuxGF_NC hycom_NaN
+end
+if ( ! -e hycom_print_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_print.F -prune -newer hycom_print_LinuxGF_NC
+echo hycom_print_LinuxGF_NC is already up to date
+hycom_print_LinuxGF_NC is already up to date
+endif
+touch hycom_print
+/bin/rm -f hycom_print
+chmod a+rx hycom_print_LinuxGF_NC
+/bin/ln -s hycom_print_LinuxGF_NC hycom_print
+end
+if ( ! -e hycom_range_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_range.F -prune -newer hycom_range_LinuxGF_NC
+echo hycom_range_LinuxGF_NC is already up to date
+hycom_range_LinuxGF_NC is already up to date
+endif
+touch hycom_range
+/bin/rm -f hycom_range
+chmod a+rx hycom_range_LinuxGF_NC
+/bin/ln -s hycom_range_LinuxGF_NC hycom_range
+end
+if ( ! -e hycom_range_ij_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_range_ij.F -prune -newer hycom_range_ij_LinuxGF_NC
+echo hycom_range_ij_LinuxGF_NC is already up to date
+hycom_range_ij_LinuxGF_NC is already up to date
+endif
+touch hycom_range_ij
+/bin/rm -f hycom_range_ij
+chmod a+rx hycom_range_ij_LinuxGF_NC
+/bin/ln -s hycom_range_ij_LinuxGF_NC hycom_range_ij
+end
+if ( ! -e hycom_rivers_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_rivers.F -prune -newer hycom_rivers_LinuxGF_NC
+echo hycom_rivers_LinuxGF_NC is already up to date
+hycom_rivers_LinuxGF_NC is already up to date
+endif
+touch hycom_rivers
+/bin/rm -f hycom_rivers
+chmod a+rx hycom_rivers_LinuxGF_NC
+/bin/ln -s hycom_rivers_LinuxGF_NC hycom_rivers
+end
+if ( ! -e hycom_rotate_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_rotate.F -prune -newer hycom_rotate_LinuxGF_NC
+echo hycom_rotate_LinuxGF_NC is already up to date
+hycom_rotate_LinuxGF_NC is already up to date
+endif
+touch hycom_rotate
+/bin/rm -f hycom_rotate
+chmod a+rx hycom_rotate_LinuxGF_NC
+/bin/ln -s hycom_rotate_LinuxGF_NC hycom_rotate
+end
+if ( ! -e hycom_runmean_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_runmean.F -prune -newer hycom_runmean_LinuxGF_NC
+echo hycom_runmean_LinuxGF_NC is already up to date
+hycom_runmean_LinuxGF_NC is already up to date
+endif
+touch hycom_runmean
+/bin/rm -f hycom_runmean
+chmod a+rx hycom_runmean_LinuxGF_NC
+/bin/ln -s hycom_runmean_LinuxGF_NC hycom_runmean
+end
+if ( ! -e hycom_sample_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_sample.F -prune -newer hycom_sample_LinuxGF_NC
+echo hycom_sample_LinuxGF_NC is already up to date
+hycom_sample_LinuxGF_NC is already up to date
+endif
+touch hycom_sample
+/bin/rm -f hycom_sample
+chmod a+rx hycom_sample_LinuxGF_NC
+/bin/ln -s hycom_sample_LinuxGF_NC hycom_sample
+end
+if ( ! -e hycom_sample_list_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_sample_list.F -prune -newer hycom_sample_list_LinuxGF_NC
+echo hycom_sample_list_LinuxGF_NC is already up to date
+hycom_sample_list_LinuxGF_NC is already up to date
+endif
+touch hycom_sample_list
+/bin/rm -f hycom_sample_list
+chmod a+rx hycom_sample_list_LinuxGF_NC
+/bin/ln -s hycom_sample_list_LinuxGF_NC hycom_sample_list
+end
+if ( ! -e hycom_sea_ok_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_sea_ok.F -prune -newer hycom_sea_ok_LinuxGF_NC
+echo hycom_sea_ok_LinuxGF_NC is already up to date
+hycom_sea_ok_LinuxGF_NC is already up to date
+endif
+touch hycom_sea_ok
+/bin/rm -f hycom_sea_ok
+chmod a+rx hycom_sea_ok_LinuxGF_NC
+/bin/ln -s hycom_sea_ok_LinuxGF_NC hycom_sea_ok
+end
+if ( ! -e hycom_shift_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_shift.F -prune -newer hycom_shift_LinuxGF_NC
+echo hycom_shift_LinuxGF_NC is already up to date
+hycom_shift_LinuxGF_NC is already up to date
+endif
+touch hycom_shift
+/bin/rm -f hycom_shift
+chmod a+rx hycom_shift_LinuxGF_NC
+/bin/ln -s hycom_shift_LinuxGF_NC hycom_shift
+end
+if ( ! -e hycom_skill_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_skill.F -prune -newer hycom_skill_LinuxGF_NC
+echo hycom_skill_LinuxGF_NC is already up to date
+hycom_skill_LinuxGF_NC is already up to date
+endif
+touch hycom_skill
+/bin/rm -f hycom_skill
+chmod a+rx hycom_skill_LinuxGF_NC
+/bin/ln -s hycom_skill_LinuxGF_NC hycom_skill
+end
+if ( ! -e hycom_slopefit_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_slopefit.F -prune -newer hycom_slopefit_LinuxGF_NC
+echo hycom_slopefit_LinuxGF_NC is already up to date
+hycom_slopefit_LinuxGF_NC is already up to date
+endif
+touch hycom_slopefit
+/bin/rm -f hycom_slopefit
+chmod a+rx hycom_slopefit_LinuxGF_NC
+/bin/ln -s hycom_slopefit_LinuxGF_NC hycom_slopefit
+end
+if ( ! -e hycom_smooth_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_smooth.F -prune -newer hycom_smooth_LinuxGF_NC
+echo hycom_smooth_LinuxGF_NC is already up to date
+hycom_smooth_LinuxGF_NC is already up to date
+endif
+touch hycom_smooth
+/bin/rm -f hycom_smooth
+chmod a+rx hycom_smooth_LinuxGF_NC
+/bin/ln -s hycom_smooth_LinuxGF_NC hycom_smooth
+end
+if ( ! -e hycom_stericssh_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_stericssh.F -prune -newer hycom_stericssh_LinuxGF_NC
+echo hycom_stericssh_LinuxGF_NC is already up to date
+hycom_stericssh_LinuxGF_NC is already up to date
+endif
+touch hycom_stericssh
+/bin/rm -f hycom_stericssh
+chmod a+rx hycom_stericssh_LinuxGF_NC
+/bin/ln -s hycom_stericssh_LinuxGF_NC hycom_stericssh
+end
+if ( ! -e hycom_subset_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_subset.F -prune -newer hycom_subset_LinuxGF_NC
+echo hycom_subset_LinuxGF_NC is already up to date
+hycom_subset_LinuxGF_NC is already up to date
+endif
+touch hycom_subset
+/bin/rm -f hycom_subset
+chmod a+rx hycom_subset_LinuxGF_NC
+/bin/ln -s hycom_subset_LinuxGF_NC hycom_subset
+end
+if ( ! -e hycom_superset_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_superset.F -prune -newer hycom_superset_LinuxGF_NC
+echo hycom_superset_LinuxGF_NC is already up to date
+hycom_superset_LinuxGF_NC is already up to date
+endif
+touch hycom_superset
+/bin/rm -f hycom_superset
+chmod a+rx hycom_superset_LinuxGF_NC
+/bin/ln -s hycom_superset_LinuxGF_NC hycom_superset
+end
+if ( ! -e hycom_thirdsm_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_thirdsm.F -prune -newer hycom_thirdsm_LinuxGF_NC
+echo hycom_thirdsm_LinuxGF_NC is already up to date
+hycom_thirdsm_LinuxGF_NC is already up to date
+endif
+touch hycom_thirdsm
+/bin/rm -f hycom_thirdsm
+chmod a+rx hycom_thirdsm_LinuxGF_NC
+/bin/ln -s hycom_thirdsm_LinuxGF_NC hycom_thirdsm
+end
+if ( ! -e hycom_tidelat_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_tidelat.F -prune -newer hycom_tidelat_LinuxGF_NC
+echo hycom_tidelat_LinuxGF_NC is already up to date
+hycom_tidelat_LinuxGF_NC is already up to date
+endif
+touch hycom_tidelat
+/bin/rm -f hycom_tidelat
+chmod a+rx hycom_tidelat_LinuxGF_NC
+/bin/ln -s hycom_tidelat_LinuxGF_NC hycom_tidelat
+end
+if ( ! -e hycom_triple_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_triple.F -prune -newer hycom_triple_LinuxGF_NC
+echo hycom_triple_LinuxGF_NC is already up to date
+hycom_triple_LinuxGF_NC is already up to date
+endif
+touch hycom_triple
+/bin/rm -f hycom_triple
+chmod a+rx hycom_triple_LinuxGF_NC
+/bin/ln -s hycom_triple_LinuxGF_NC hycom_triple
+end
+if ( ! -e hycom_void_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_void.F -prune -newer hycom_void_LinuxGF_NC
+echo hycom_void_LinuxGF_NC is already up to date
+hycom_void_LinuxGF_NC is already up to date
+endif
+touch hycom_void
+/bin/rm -f hycom_void
+chmod a+rx hycom_void_LinuxGF_NC
+/bin/ln -s hycom_void_LinuxGF_NC hycom_void
+end
+if ( ! -e hycom_xy2lonlat_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_xy2lonlat.F -prune -newer hycom_xy2lonlat_LinuxGF_NC
+echo hycom_xy2lonlat_LinuxGF_NC is already up to date
+hycom_xy2lonlat_LinuxGF_NC is already up to date
+endif
+touch hycom_xy2lonlat
+/bin/rm -f hycom_xy2lonlat
+chmod a+rx hycom_xy2lonlat_LinuxGF_NC
+/bin/ln -s hycom_xy2lonlat_LinuxGF_NC hycom_xy2lonlat
+end
+if ( ! -e hycom_zonal_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_zonal.F -prune -newer hycom_zonal_LinuxGF_NC
+echo hycom_zonal_LinuxGF_NC is already up to date
+hycom_zonal_LinuxGF_NC is already up to date
+endif
+touch hycom_zonal
+/bin/rm -f hycom_zonal
+chmod a+rx hycom_zonal_LinuxGF_NC
+/bin/ln -s hycom_zonal_LinuxGF_NC hycom_zonal
+end
+if ( ! -e hycom_zonal_lat_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_zonal_lat.F -prune -newer hycom_zonal_lat_LinuxGF_NC
+echo hycom_zonal_lat_LinuxGF_NC is already up to date
+hycom_zonal_lat_LinuxGF_NC is already up to date
+endif
+touch hycom_zonal_lat
+/bin/rm -f hycom_zonal_lat
+chmod a+rx hycom_zonal_lat_LinuxGF_NC
+/bin/ln -s hycom_zonal_lat_LinuxGF_NC hycom_zonal_lat
+end
+if ( ! -e ascii2hycom_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find ascii2hycom.F -prune -newer ascii2hycom_LinuxGF_NC
+echo ascii2hycom_LinuxGF_NC is already up to date
+ascii2hycom_LinuxGF_NC is already up to date
+endif
+touch ascii2hycom
+/bin/rm -f ascii2hycom
+chmod a+rx ascii2hycom_LinuxGF_NC
+/bin/ln -s ascii2hycom_LinuxGF_NC ascii2hycom
+end
+if ( ! -e raw2hycom_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find raw2hycom.F -prune -newer raw2hycom_LinuxGF_NC
+echo raw2hycom_LinuxGF_NC is already up to date
+raw2hycom_LinuxGF_NC is already up to date
+endif
+touch raw2hycom
+/bin/rm -f raw2hycom
+chmod a+rx raw2hycom_LinuxGF_NC
+/bin/ln -s raw2hycom_LinuxGF_NC raw2hycom
+end
+if ( ! -e raw82hycom_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find raw82hycom.F -prune -newer raw82hycom_LinuxGF_NC
+echo raw82hycom_LinuxGF_NC is already up to date
+raw82hycom_LinuxGF_NC is already up to date
+endif
+touch raw82hycom
+/bin/rm -f raw82hycom
+chmod a+rx raw82hycom_LinuxGF_NC
+/bin/ln -s raw82hycom_LinuxGF_NC raw82hycom
+end
+if ( ! -e hycom_2d_ok_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_2d_ok.F -prune -newer hycom_2d_ok_LinuxGF_NC
+echo hycom_2d_ok_LinuxGF_NC is already up to date
+hycom_2d_ok_LinuxGF_NC is already up to date
+endif
+touch hycom_2d_ok
+/bin/rm -f hycom_2d_ok
+chmod a+rx hycom_2d_ok_LinuxGF_NC
+/bin/ln -s hycom_2d_ok_LinuxGF_NC hycom_2d_ok
+end
+if ( ! -e hycom_autocorr_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_autocorr.F -prune -newer hycom_autocorr_LinuxGF_NC
+echo hycom_autocorr_LinuxGF_NC is already up to date
+hycom_autocorr_LinuxGF_NC is already up to date
+endif
+touch hycom_autocorr
+/bin/rm -f hycom_autocorr
+chmod a+rx hycom_autocorr_LinuxGF_NC
+/bin/ln -s hycom_autocorr_LinuxGF_NC hycom_autocorr
+end
+if ( ! -e hycom_autocorr_lag_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_autocorr_lag.F -prune -newer hycom_autocorr_lag_LinuxGF_NC
+echo hycom_autocorr_lag_LinuxGF_NC is already up to date
+hycom_autocorr_lag_LinuxGF_NC is already up to date
+endif
+touch hycom_autocorr_lag
+/bin/rm -f hycom_autocorr_lag
+chmod a+rx hycom_autocorr_lag_LinuxGF_NC
+/bin/ln -s hycom_autocorr_lag_LinuxGF_NC hycom_autocorr_lag
+end
+if ( ! -e hycom_boxmean_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_boxmean.F -prune -newer hycom_boxmean_LinuxGF_NC
+echo hycom_boxmean_LinuxGF_NC is already up to date
+hycom_boxmean_LinuxGF_NC is already up to date
+endif
+touch hycom_boxmean
+/bin/rm -f hycom_boxmean
+chmod a+rx hycom_boxmean_LinuxGF_NC
+/bin/ln -s hycom_boxmean_LinuxGF_NC hycom_boxmean
+end
+if ( ! -e hycom_boxtime_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_boxtime.F -prune -newer hycom_boxtime_LinuxGF_NC
+echo hycom_boxtime_LinuxGF_NC is already up to date
+hycom_boxtime_LinuxGF_NC is already up to date
+endif
+touch hycom_boxtime
+/bin/rm -f hycom_boxtime
+chmod a+rx hycom_boxtime_LinuxGF_NC
+/bin/ln -s hycom_boxtime_LinuxGF_NC hycom_boxtime
+end
+if ( ! -e hycom_index_sort_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_index_sort.F -prune -newer hycom_index_sort_LinuxGF_NC
+echo hycom_index_sort_LinuxGF_NC is already up to date
+hycom_index_sort_LinuxGF_NC is already up to date
+endif
+touch hycom_index_sort
+/bin/rm -f hycom_index_sort
+chmod a+rx hycom_index_sort_LinuxGF_NC
+/bin/ln -s hycom_index_sort_LinuxGF_NC hycom_index_sort
+end
+if ( ! -e hycom_mask_ok_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_mask_ok.F -prune -newer hycom_mask_ok_LinuxGF_NC
+echo hycom_mask_ok_LinuxGF_NC is already up to date
+hycom_mask_ok_LinuxGF_NC is already up to date
+endif
+touch hycom_mask_ok
+/bin/rm -f hycom_mask_ok
+chmod a+rx hycom_mask_ok_LinuxGF_NC
+/bin/ln -s hycom_mask_ok_LinuxGF_NC hycom_mask_ok
+end
+if ( ! -e hycom_mass_corr_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_mass_corr.F -prune -newer hycom_mass_corr_LinuxGF_NC
+echo hycom_mass_corr_LinuxGF_NC is already up to date
+hycom_mass_corr_LinuxGF_NC is already up to date
+endif
+touch hycom_mass_corr
+/bin/rm -f hycom_mass_corr
+chmod a+rx hycom_mass_corr_LinuxGF_NC
+/bin/ln -s hycom_mass_corr_LinuxGF_NC hycom_mass_corr
+end
+if ( ! -e hycom_newzi_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_newzi.F -prune -newer hycom_newzi_LinuxGF_NC
+echo hycom_newzi_LinuxGF_NC is already up to date
+hycom_newzi_LinuxGF_NC is already up to date
+endif
+touch hycom_newzi
+/bin/rm -f hycom_newzi
+chmod a+rx hycom_newzi_LinuxGF_NC
+/bin/ln -s hycom_newzi_LinuxGF_NC hycom_newzi
+end
+if ( ! -e hycom_quadlsq_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_quadlsq.F -prune -newer hycom_quadlsq_LinuxGF_NC
+echo hycom_quadlsq_LinuxGF_NC is already up to date
+hycom_quadlsq_LinuxGF_NC is already up to date
+endif
+touch hycom_quadlsq
+/bin/rm -f hycom_quadlsq
+chmod a+rx hycom_quadlsq_LinuxGF_NC
+/bin/ln -s hycom_quadlsq_LinuxGF_NC hycom_quadlsq
+end
+if ( ! -e hycom_regression_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_regression.F -prune -newer hycom_regression_LinuxGF_NC
+echo hycom_regression_LinuxGF_NC is already up to date
+hycom_regression_LinuxGF_NC is already up to date
+endif
+touch hycom_regression
+/bin/rm -f hycom_regression
+chmod a+rx hycom_regression_LinuxGF_NC
+/bin/ln -s hycom_regression_LinuxGF_NC hycom_regression
+end
+if ( ! -e hycom_sstice_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_sstice.F -prune -newer hycom_sstice_LinuxGF_NC
+echo hycom_sstice_LinuxGF_NC is already up to date
+hycom_sstice_LinuxGF_NC is already up to date
+endif
+touch hycom_sstice
+/bin/rm -f hycom_sstice
+chmod a+rx hycom_sstice_LinuxGF_NC
+/bin/ln -s hycom_sstice_LinuxGF_NC hycom_sstice
+end
+if ( ! -e hycom_botfric_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_botfric.F -prune -newer hycom_botfric_LinuxGF_NC
+echo hycom_botfric_LinuxGF_NC is already up to date
+hycom_botfric_LinuxGF_NC is already up to date
+endif
+touch hycom_botfric
+/bin/rm -f hycom_botfric
+chmod a+rx hycom_botfric_LinuxGF_NC
+/bin/ln -s hycom_botfric_LinuxGF_NC hycom_botfric
+end
+if ( ! -e hycom_boxsmooth_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_boxsmooth.F -prune -newer hycom_boxsmooth_LinuxGF_NC
+echo hycom_boxsmooth_LinuxGF_NC is already up to date
+hycom_boxsmooth_LinuxGF_NC is already up to date
+endif
+touch hycom_boxsmooth
+/bin/rm -f hycom_boxsmooth
+chmod a+rx hycom_boxsmooth_LinuxGF_NC
+/bin/ln -s hycom_boxsmooth_LinuxGF_NC hycom_boxsmooth
+end
+if ( ! -e hycom_diflat_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_diflat.F -prune -newer hycom_diflat_LinuxGF_NC
+echo hycom_diflat_LinuxGF_NC is already up to date
+hycom_diflat_LinuxGF_NC is already up to date
+endif
+touch hycom_diflat
+/bin/rm -f hycom_diflat
+chmod a+rx hycom_diflat_LinuxGF_NC
+/bin/ln -s hycom_diflat_LinuxGF_NC hycom_diflat
+end
+if ( ! -e hycom_merge_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_merge.F -prune -newer hycom_merge_LinuxGF_NC
+echo hycom_merge_LinuxGF_NC is already up to date
+hycom_merge_LinuxGF_NC is already up to date
+endif
+touch hycom_merge
+/bin/rm -f hycom_merge
+chmod a+rx hycom_merge_LinuxGF_NC
+/bin/ln -s hycom_merge_LinuxGF_NC hycom_merge
+end
+if ( ! -e hycom_sample_xy_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_sample_xy.F -prune -newer hycom_sample_xy_LinuxGF_NC
+echo hycom_sample_xy_LinuxGF_NC is already up to date
+hycom_sample_xy_LinuxGF_NC is already up to date
+endif
+touch hycom_sample_xy
+/bin/rm -f hycom_sample_xy
+chmod a+rx hycom_sample_xy_LinuxGF_NC
+/bin/ln -s hycom_sample_xy_LinuxGF_NC hycom_sample_xy
+end
+if ( ! -e hycom_scatter_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_scatter.F -prune -newer hycom_scatter_LinuxGF_NC
+echo hycom_scatter_LinuxGF_NC is already up to date
+hycom_scatter_LinuxGF_NC is already up to date
+endif
+touch hycom_scatter
+/bin/rm -f hycom_scatter
+chmod a+rx hycom_scatter_LinuxGF_NC
+/bin/ln -s hycom_scatter_LinuxGF_NC hycom_scatter
+end
+if ( ! -e hycom_tidebody_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_tidebody.F -prune -newer hycom_tidebody_LinuxGF_NC
+echo hycom_tidebody_LinuxGF_NC is already up to date
+hycom_tidebody_LinuxGF_NC is already up to date
+endif
+touch hycom_tidebody
+/bin/rm -f hycom_tidebody
+chmod a+rx hycom_tidebody_LinuxGF_NC
+/bin/ln -s hycom_tidebody_LinuxGF_NC hycom_tidebody
+end
+if ( ! -e hycom_vmean_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_vmean.F -prune -newer hycom_vmean_LinuxGF_NC
+echo hycom_vmean_LinuxGF_NC is already up to date
+hycom_vmean_LinuxGF_NC is already up to date
+endif
+touch hycom_vmean
+/bin/rm -f hycom_vmean
+chmod a+rx hycom_vmean_LinuxGF_NC
+/bin/ln -s hycom_vmean_LinuxGF_NC hycom_vmean
+end
+if ( ! -e hycom_xward_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_xward.F -prune -newer hycom_xward_LinuxGF_NC
+echo hycom_xward_LinuxGF_NC is already up to date
+hycom_xward_LinuxGF_NC is already up to date
+endif
+touch hycom_xward
+/bin/rm -f hycom_xward
+chmod a+rx hycom_xward_LinuxGF_NC
+/bin/ln -s hycom_xward_LinuxGF_NC hycom_xward
+end
+gfortran -fPIC -fno-second-underscore -fconvert=big-endian -O -c hycom_profile_lib.F
+foreach f ( hycom_profile_list )
+if ( ! -e hycom_profile_list_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_profile_list.F -prune -newer hycom_profile_list_LinuxGF_NC
+echo hycom_profile_list_LinuxGF_NC is already up to date
+hycom_profile_list_LinuxGF_NC is already up to date
+endif
+touch hycom_profile_list
+/bin/rm -f hycom_profile_list
+chmod a+rx hycom_profile_list_LinuxGF_NC
+/bin/ln -s hycom_profile_list_LinuxGF_NC hycom_profile_list
+end
+foreach f ( hycom_profile_argo hycom_profile_hybgen hycom_profile_hybgen+ )
+if ( ! -e hycom_profile_argo_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_profile_argo.F -prune -newer hycom_profile_argo_LinuxGF_NC
+find: ‘hycom_profile_argo.F’: No such file or directory
+echo hycom_profile_argo_LinuxGF_NC is already up to date
+hycom_profile_argo_LinuxGF_NC is already up to date
+endif
+touch hycom_profile_argo
+/bin/rm -f hycom_profile_argo
+chmod a+rx hycom_profile_argo_LinuxGF_NC
+/bin/ln -s hycom_profile_argo_LinuxGF_NC hycom_profile_argo
+end
+if ( ! -e hycom_profile_hybgen_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_profile_hybgen.F -prune -newer hycom_profile_hybgen_LinuxGF_NC
+find: ‘hycom_profile_hybgen.F’: No such file or directory
+echo hycom_profile_hybgen_LinuxGF_NC is already up to date
+hycom_profile_hybgen_LinuxGF_NC is already up to date
+endif
+touch hycom_profile_hybgen
+/bin/rm -f hycom_profile_hybgen
+chmod a+rx hycom_profile_hybgen_LinuxGF_NC
+/bin/ln -s hycom_profile_hybgen_LinuxGF_NC hycom_profile_hybgen
+end
+if ( ! -e hycom_profile_hybgen+_LinuxGF_NC ) then
+if ( -f `find ${f}.F -prune -newer ${f}_${OS}` ) then
+find hycom_profile_hybgen+.F -prune -newer hycom_profile_hybgen+_LinuxGF_NC
+find: ‘hycom_profile_hybgen+.F’: No such file or directory
+echo hycom_profile_hybgen+_LinuxGF_NC is already up to date
+hycom_profile_hybgen+_LinuxGF_NC is already up to date
+endif
+touch hycom_profile_hybgen+
+/bin/rm -f hycom_profile_hybgen+
+chmod a+rx hycom_profile_hybgen+_LinuxGF_NC
+/bin/ln -s hycom_profile_hybgen+_LinuxGF_NC hycom_profile_hybgen+
+end

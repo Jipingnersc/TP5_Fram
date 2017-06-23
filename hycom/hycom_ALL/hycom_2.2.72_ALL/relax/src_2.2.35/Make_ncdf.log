@@ -1,0 +1,11 @@
+Resetting modules to system default
+NCDF =  /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b
+ARCH =  intelGF_NC
+Make worked: ssh_modas
+Make failed: sst_modas
+Make worked: sst_gdem3
+Make worked: sst_gdem4
+Make worked: sst_woa
+Make worked: z_gdem3
+Make worked: z_gdem4
+Make worked: z_woa_tracer

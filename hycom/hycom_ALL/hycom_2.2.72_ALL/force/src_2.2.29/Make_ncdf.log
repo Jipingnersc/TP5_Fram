@@ -1,0 +1,9 @@
+Resetting modules to system default
+NCDF =  /cluster/software/easybuild/software/netCDF-Fortran/4.4.4-foss-2016b
+ARCH =  intelGF_NC
+Make worked: force2nc
+Make worked: nrl2nc
+Make worked: ap_nc
+Make worked: kp_nc
+Make worked: tp_nc
+Make worked: wi_nc
